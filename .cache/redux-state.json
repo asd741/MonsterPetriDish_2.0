@@ -1,13 +1,22 @@
 {
   "nodes": {
     "SitePage /dev-404-page/": {
+      "jsonName": "dev-404-page-5f9",
+      "internalComponentName": "ComponentDev404Page",
       "path": "/dev-404-page/",
+      "component": "/Users/asd741/Documents/projects/MonsterPetriDish_2.0/.cache/dev-404-page.js",
+      "componentChunkName": "component---cache-dev-404-page-js",
+      "context": {},
+      "pluginCreator___NODE": "d48d1c52-fe48-53cb-8f08-aa4b47dde5a5",
+      "pluginCreatorId": "d48d1c52-fe48-53cb-8f08-aa4b47dde5a5",
+      "componentPath": "/Users/asd741/Documents/projects/MonsterPetriDish_2.0/.cache/dev-404-page.js",
       "id": "SitePage /dev-404-page/",
       "parent": null,
       "children": [],
       "internal": {
         "type": "SitePage",
-        "contentDigest": "f91d29e10ba680b413138cf9ed86e655",
+        "contentDigest": "125f60c9319a0be76efcd301407cd8db",
+        "description": "d48d1c52-fe48-53cb-8f08-aa4b47dde5a5",
         "owner": "internal-data-bridge"
       }
     },
@@ -752,11 +761,90 @@
         "owner": "internal-data-bridge"
       }
     },
+    "d8f4bf2b-73c7-5c69-93d1-79ac2ac7c2e8": {
+      "resolve": "/Users/asd741/Documents/projects/MonsterPetriDish_2.0/node_modules/gatsby-plugin-sass",
+      "id": "d8f4bf2b-73c7-5c69-93d1-79ac2ac7c2e8",
+      "name": "gatsby-plugin-sass",
+      "version": "2.0.11",
+      "pluginOptions": {
+        "plugins": []
+      },
+      "nodeAPIs": [
+        "onCreateWebpackConfig"
+      ],
+      "browserAPIs": [],
+      "ssrAPIs": [],
+      "pluginFilepath": "/Users/asd741/Documents/projects/MonsterPetriDish_2.0/node_modules/gatsby-plugin-sass",
+      "packageJson": {
+        "name": "gatsby-plugin-sass",
+        "description": "Gatsby plugin to handle scss/sass files",
+        "version": "2.0.11",
+        "main": "index.js",
+        "keywords": [
+          "gatsby",
+          "gatsby-plugin",
+          "sass",
+          "scss"
+        ],
+        "author": {
+          "name": "Daniel Farrell",
+          "email": "daniel@mobelux.com"
+        },
+        "license": "MIT",
+        "dependencies": [
+          {
+            "name": "@babel/runtime",
+            "version": "^7.0.0"
+          },
+          {
+            "name": "sass-loader",
+            "version": "^7.0.1"
+          }
+        ],
+        "devDependencies": [
+          {
+            "name": "@babel/cli",
+            "version": "^7.0.0"
+          },
+          {
+            "name": "@babel/core",
+            "version": "^7.0.0"
+          },
+          {
+            "name": "babel-preset-gatsby-package",
+            "version": "^0.1.4"
+          },
+          {
+            "name": "cross-env",
+            "version": "^5.1.4"
+          }
+        ],
+        "peerDependencies": [
+          {
+            "name": "gatsby",
+            "version": "^2.0.0"
+          },
+          {
+            "name": "node-sass",
+            "version": "^4.9.0"
+          }
+        ],
+        "optionalDependecies": [],
+        "bundledDependecies": []
+      },
+      "parent": null,
+      "children": [],
+      "internal": {
+        "contentDigest": "7407fb49c4eaaa8251793308806fc5c8",
+        "type": "SitePlugin",
+        "owner": "internal-data-bridge"
+      }
+    },
     "7374ebf2-d961-52ee-92a2-c25e7cb387a9": {
       "resolve": "/Users/asd741/Documents/projects/MonsterPetriDish_2.0",
       "id": "7374ebf2-d961-52ee-92a2-c25e7cb387a9",
       "name": "default-site-plugin",
-      "version": "b89e3cc2ae716e73b3be14f97738768b",
+      "version": "1e5762b6f6b9ad393fbde44c71bb1c28",
       "pluginOptions": {
         "plugins": []
       },
@@ -799,6 +887,10 @@
             "version": "^3.0.6"
           },
           {
+            "name": "gatsby-plugin-sass",
+            "version": "^2.0.11"
+          },
+          {
             "name": "gatsby-plugin-sharp",
             "version": "^2.0.20"
           },
@@ -809,6 +901,10 @@
           {
             "name": "gatsby-transformer-sharp",
             "version": "^2.1.13"
+          },
+          {
+            "name": "node-sass",
+            "version": "^4.11.0"
           },
           {
             "name": "prop-types",
@@ -868,7 +964,7 @@
       "parent": null,
       "children": [],
       "internal": {
-        "contentDigest": "49e2abea04163c7f4d8b7720a1526c4b",
+        "contentDigest": "f0cac567fe1fae3de380756753269de1",
         "type": "SitePlugin",
         "owner": "internal-data-bridge"
       }
@@ -982,14 +1078,16 @@
         "description": "Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.",
         "author": "@gatsbyjs"
       },
+      "port": "8000",
+      "host": "localhost",
       "pathPrefix": "/MonsterPetriDish",
       "polyfill": true,
-      "buildTime": "2019-04-05T05:15:26.693Z",
+      "buildTime": "2019-04-05T10:41:41.459Z",
       "id": "Site",
       "parent": null,
       "children": [],
       "internal": {
-        "contentDigest": "296399d8e95ebb2d32f35492c9bf4ab3",
+        "contentDigest": "0a4c4f06f75070ffb92374ab70dd19d3",
         "type": "Site",
         "owner": "internal-data-bridge"
       }
@@ -999,7 +1097,7 @@
       "children": [],
       "parent": null,
       "internal": {
-        "contentDigest": "212af74c78b925a38dcda471c82e2a73",
+        "contentDigest": "3bd8f4fb1fa7de66ba795e4e339a1c7c",
         "type": "Directory",
         "description": "Directory \"src/images\"",
         "owner": "gatsby-source-filesystem"
@@ -1010,10 +1108,10 @@
       "extension": "",
       "size": 128,
       "prettySize": "128 B",
-      "modifiedTime": "2019-03-28T06:26:12.000Z",
-      "accessTime": "2019-04-05T05:15:41.186Z",
-      "changeTime": "2019-04-05T04:17:44.511Z",
-      "birthTime": "2019-03-07T13:35:48.000Z",
+      "modifiedTime": "2019-04-05T06:03:11.617Z",
+      "accessTime": "2019-04-05T10:41:59.655Z",
+      "changeTime": "2019-04-05T06:03:11.617Z",
+      "birthTime": "2019-04-05T06:03:11.614Z",
       "root": "/",
       "dir": "/Users/asd741/Documents/projects/MonsterPetriDish_2.0/src",
       "base": "images",
@@ -1021,22 +1119,22 @@
       "name": "images",
       "relativeDirectory": "..",
       "dev": 16777220,
-      "mode": 16895,
+      "mode": 16877,
       "nlink": 4,
       "uid": 501,
       "gid": 20,
       "rdev": 0,
       "blksize": 4096,
-      "ino": 5147958,
+      "ino": 5468920,
       "blocks": 0,
-      "atimeMs": 1554441341186.4805,
-      "mtimeMs": 1553754372000,
-      "ctimeMs": 1554437864511.1265,
-      "birthtimeMs": 1551965748000,
-      "atime": "2019-04-05T05:15:41.186Z",
-      "mtime": "2019-03-28T06:26:12.000Z",
-      "ctime": "2019-04-05T04:17:44.511Z",
-      "birthtime": "2019-03-07T13:35:48.000Z"
+      "atimeMs": 1554460919655.1582,
+      "mtimeMs": 1554444191617.04,
+      "ctimeMs": 1554444191617.04,
+      "birthtimeMs": 1554444191613.9983,
+      "atime": "2019-04-05T10:41:59.655Z",
+      "mtime": "2019-04-05T06:03:11.617Z",
+      "ctime": "2019-04-05T06:03:11.617Z",
+      "birthtime": "2019-04-05T06:03:11.614Z"
     },
     "6dae965e-ec50-5e81-bc56-2a6b609812ba": {
       "id": "6dae965e-ec50-5e81-bc56-2a6b609812ba",
@@ -1057,10 +1155,10 @@
       "extension": "png",
       "size": 21212,
       "prettySize": "21.2 kB",
-      "modifiedTime": "2019-02-13T15:27:02.000Z",
-      "accessTime": "2019-04-05T05:02:50.376Z",
-      "changeTime": "2019-04-05T04:17:44.511Z",
-      "birthTime": "2019-03-07T13:35:48.000Z",
+      "modifiedTime": "2019-04-05T06:03:11.617Z",
+      "accessTime": "2019-04-05T06:11:20.759Z",
+      "changeTime": "2019-04-05T06:03:11.617Z",
+      "birthTime": "2019-04-05T06:03:11.617Z",
       "root": "/",
       "dir": "/Users/asd741/Documents/projects/MonsterPetriDish_2.0/src/images",
       "base": "gatsby-icon.png",
@@ -1068,22 +1166,22 @@
       "name": "gatsby-icon",
       "relativeDirectory": "",
       "dev": 16777220,
-      "mode": 33279,
+      "mode": 33261,
       "nlink": 1,
       "uid": 501,
       "gid": 20,
       "rdev": 0,
       "blksize": 4096,
-      "ino": 5147960,
+      "ino": 5468922,
       "blocks": 48,
-      "atimeMs": 1554440570375.7307,
-      "mtimeMs": 1550071622000,
-      "ctimeMs": 1554437864510.9688,
-      "birthtimeMs": 1551965748000,
-      "atime": "2019-04-05T05:02:50.376Z",
-      "mtime": "2019-02-13T15:27:02.000Z",
-      "ctime": "2019-04-05T04:17:44.511Z",
-      "birthtime": "2019-03-07T13:35:48.000Z"
+      "atimeMs": 1554444680759.0984,
+      "mtimeMs": 1554444191617.257,
+      "ctimeMs": 1554444191617.257,
+      "birthtimeMs": 1554444191617.0317,
+      "atime": "2019-04-05T06:11:20.759Z",
+      "mtime": "2019-04-05T06:03:11.617Z",
+      "ctime": "2019-04-05T06:03:11.617Z",
+      "birthtime": "2019-04-05T06:03:11.617Z"
     },
     "a3ed8603-4780-5f13-9eed-4ae2778e37e1": {
       "id": "a3ed8603-4780-5f13-9eed-4ae2778e37e1",
@@ -1114,10 +1212,10 @@
       "extension": "png",
       "size": 167273,
       "prettySize": "167 kB",
-      "modifiedTime": "2019-02-13T15:27:02.000Z",
-      "accessTime": "2019-04-05T05:02:50.123Z",
-      "changeTime": "2019-04-05T04:17:44.509Z",
-      "birthTime": "2019-03-07T13:35:48.000Z",
+      "modifiedTime": "2019-04-05T06:03:11.617Z",
+      "accessTime": "2019-04-05T06:12:32.455Z",
+      "changeTime": "2019-04-05T06:03:11.617Z",
+      "birthTime": "2019-04-05T06:03:11.614Z",
       "root": "/",
       "dir": "/Users/asd741/Documents/projects/MonsterPetriDish_2.0/src/images",
       "base": "gatsby-astronaut.png",
@@ -1125,22 +1223,22 @@
       "name": "gatsby-astronaut",
       "relativeDirectory": "",
       "dev": 16777220,
-      "mode": 33279,
+      "mode": 33261,
       "nlink": 1,
       "uid": 501,
       "gid": 20,
       "rdev": 0,
       "blksize": 4096,
-      "ino": 5147959,
+      "ino": 5468921,
       "blocks": 328,
-      "atimeMs": 1554440570122.8684,
-      "mtimeMs": 1550071622000,
-      "ctimeMs": 1554437864509.4163,
-      "birthtimeMs": 1551965748000,
-      "atime": "2019-04-05T05:02:50.123Z",
-      "mtime": "2019-02-13T15:27:02.000Z",
-      "ctime": "2019-04-05T04:17:44.509Z",
-      "birthtime": "2019-03-07T13:35:48.000Z"
+      "atimeMs": 1554444752455.069,
+      "mtimeMs": 1554444191616.8357,
+      "ctimeMs": 1554444191616.8357,
+      "birthtimeMs": 1554444191614.1345,
+      "atime": "2019-04-05T06:12:32.455Z",
+      "mtime": "2019-04-05T06:03:11.617Z",
+      "ctime": "2019-04-05T06:03:11.617Z",
+      "birthtime": "2019-04-05T06:03:11.614Z"
     },
     "17d8ff32-4ae2-59d8-a0d0-c5cf7045ceff": {
       "id": "17d8ff32-4ae2-59d8-a0d0-c5cf7045ceff",
@@ -1275,7 +1373,7 @@
   },
   "status": {
     "plugins": {},
-    "PLUGINS_HASH": "7ccb27470aa1f33c1e0d03b37cb1e0f1"
+    "PLUGINS_HASH": "c5d6a666ffd184eb10b8826280e9a1e6"
   },
   "componentDataDependencies": {
     "nodes": {
@@ -1305,6 +1403,10 @@
     "404-html-516": "164/path---404-html-516-62a-NZuapzHg3X9TaN1iIixfv1W23E"
   },
   "components": {
+    "/Users/asd741/Documents/projects/MonsterPetriDish_2.0/.cache/dev-404-page.js": {
+      "query": "",
+      "componentPath": "/Users/asd741/Documents/projects/MonsterPetriDish_2.0/.cache/dev-404-page.js"
+    },
     "/Users/asd741/Documents/projects/MonsterPetriDish_2.0/src/pages/404.js": {
       "query": "",
       "componentPath": "/Users/asd741/Documents/projects/MonsterPetriDish_2.0/src/pages/404.js"

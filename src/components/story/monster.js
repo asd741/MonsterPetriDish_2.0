@@ -229,7 +229,6 @@ export default class Monster extends Component {
     }
     function render() {
       // stats.update();
-      console.log('monster');
       if(!window.monster){
         return;
       }

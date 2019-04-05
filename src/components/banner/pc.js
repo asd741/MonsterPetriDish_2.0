@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./normalize.css";
 import { connect } from "react-redux";
 class Pc extends Component {
   constructor(props){
@@ -24,8 +23,6 @@ class Pc extends Component {
       }
     };
     window.S=S;
-    console.log(window.S==S,window.S,S);
-    
     S.Drawing = (function() {
       let canvas,
         context,

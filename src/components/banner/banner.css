@@ -1,59 +1,42 @@
-canvas {
-  display: block;
-}
-body {
+
+#banner-page{
   font-family: "Avenir", "Helvetica Neue", Helvetica, Arial, sans-serif;
   background: linear-gradient(to bottom, #cbebdb, #53a4c5);
-  color: #666;
-  font-size: 16px;
-  line-height: 1.5em;
 }
-
-h1 {
+#mobi-page-h1 {
   position: absolute;
-  top: 10%;
-  left: 50%;
-  transform: translate(-50%);
-  writing-mode: vertical-lr;
+  top: 50%;
+  margin: 0;
+  width: 100%;
+  text-align: center;
+  transform: translate(0,-50%);
   font-weight: 900;
   color: white;
-  margin: 0 0 12px 0;
-  font-size: 5vmax;
+  font-size: 8vmax;
   line-height: 1.5em;
   letter-spacing: 10px;
 }
-
-p {
-  margin: 0 0 10x 0;
+@media screen and (max-width:700px){
+  #mobi-page-h1 {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    width: auto;
+    transform: translate(-50%);
+    writing-mode: vertical-lr;
+    font-weight: 900;
+    color: white;
+    font-size: 7vmax;
+    line-height: 1.5em;
+    letter-spacing: 10px;
+  }
 }
 
-a {
-  color: #888;
-  text-decoration: none;
-  border-bottom: 1px solid #ccc;
-}
 
-a:hover {
-  border-bottom-color: #888;
-}
 
-body,
-.overlay {
-  -webkit-perspective: 1000;
-  -webkit-perspective-origin-y: 25%;
-}
+
 
 .body--ready {
-  /* Ideas
-  background: -webkit-linear-gradient(top, #e2b986 -10%, #241c35 140%);
-  background: -webkit-linear-gradient(top, #c97369 -40%, #241c35 130%);
-  background: -webkit-linear-gradient(top, #fac4c4 -10%, #606386 140%);
-  background: -webkit-linear-gradient(top, #519ab0 0%, #414A6D 110%);
-  background: -webkit-linear-gradient(top, rgb(129, 0, 170) 0%, rgb(43, 4, 114) 110%);
-  background: -webkit-linear-gradient(top, rgb(163, 235, 189) 0%, rgb(16, 93, 145) 110%);
-  background: -webkit-linear-gradient(top, rgb(165, 103, 189) 0%, rgb(75, 233, 214) 120%);
-  */
-
   background: -webkit-linear-gradient(
     top,
     rgb(203, 235, 219) 0%,
@@ -98,7 +81,7 @@ body,
 .ui {
   position: absolute;
   left: 50%;
-  bottom: 5%;
+  bottom: 10%;
   width: 300px;
   margin-left: -150px;
 }
@@ -230,7 +213,6 @@ body,
   margin-top: 1px;
   color: #333;
   opacity: 0.9;
-
   -webkit-transition: -webkit-transform 0.7s
       cubic-bezier(0.694, 0.0482, 0.335, 1),
     opacity 0.1s cubic-bezier(0.694, 0.0482, 0.335, 1);
@@ -283,7 +265,6 @@ body,
 }
 
 .commands-item-action {
-  display: inline-block;
   float: right;
   margin-top: 3px;
   text-transform: uppercase;
@@ -355,11 +336,6 @@ body,
 
 .touch .ui-input {
   display: none;
-}
-#stats {
-  position: absolute;
-  left: 0;
-  top: 0;
 }
 .pc-page {
   display: none;
