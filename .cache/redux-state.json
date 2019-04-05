@@ -1,22 +1,13 @@
 {
   "nodes": {
     "SitePage /dev-404-page/": {
-      "jsonName": "dev-404-page-5f9",
-      "internalComponentName": "ComponentDev404Page",
       "path": "/dev-404-page/",
-      "component": "/Users/asd741/Documents/projects/MonsterPetriDish_2.0/.cache/dev-404-page.js",
-      "componentChunkName": "component---cache-dev-404-page-js",
-      "context": {},
-      "pluginCreator___NODE": "d48d1c52-fe48-53cb-8f08-aa4b47dde5a5",
-      "pluginCreatorId": "d48d1c52-fe48-53cb-8f08-aa4b47dde5a5",
-      "componentPath": "/Users/asd741/Documents/projects/MonsterPetriDish_2.0/.cache/dev-404-page.js",
       "id": "SitePage /dev-404-page/",
       "parent": null,
       "children": [],
       "internal": {
         "type": "SitePage",
-        "contentDigest": "125f60c9319a0be76efcd301407cd8db",
-        "description": "d48d1c52-fe48-53cb-8f08-aa4b47dde5a5",
+        "contentDigest": "f91d29e10ba680b413138cf9ed86e655",
         "owner": "internal-data-bridge"
       }
     },
@@ -844,7 +835,7 @@
       "resolve": "/Users/asd741/Documents/projects/MonsterPetriDish_2.0",
       "id": "7374ebf2-d961-52ee-92a2-c25e7cb387a9",
       "name": "default-site-plugin",
-      "version": "1e5762b6f6b9ad393fbde44c71bb1c28",
+      "version": "bced038db20bcbaacc19107dd7959304",
       "pluginOptions": {
         "plugins": []
       },
@@ -911,6 +902,10 @@
             "version": "^15.7.1"
           },
           {
+            "name": "rc-queue-anim",
+            "version": "^1.6.12"
+          },
+          {
             "name": "react",
             "version": "^16.8.1"
           },
@@ -964,7 +959,7 @@
       "parent": null,
       "children": [],
       "internal": {
-        "contentDigest": "f0cac567fe1fae3de380756753269de1",
+        "contentDigest": "23e84fafc5adb314d3f2dae248e16d55",
         "type": "SitePlugin",
         "owner": "internal-data-bridge"
       }
@@ -1078,16 +1073,14 @@
         "description": "Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.",
         "author": "@gatsbyjs"
       },
-      "port": "8000",
-      "host": "localhost",
-      "pathPrefix": "/MonsterPetriDish",
+      "pathPrefix": "/MonsterPetriDish_2.0",
       "polyfill": true,
-      "buildTime": "2019-04-05T10:41:41.459Z",
+      "buildTime": "2019-04-05T12:25:22.974Z",
       "id": "Site",
       "parent": null,
       "children": [],
       "internal": {
-        "contentDigest": "0a4c4f06f75070ffb92374ab70dd19d3",
+        "contentDigest": "aca550c18c0101ca3263ec51e3f616df",
         "type": "Site",
         "owner": "internal-data-bridge"
       }
@@ -1097,7 +1090,7 @@
       "children": [],
       "parent": null,
       "internal": {
-        "contentDigest": "3bd8f4fb1fa7de66ba795e4e339a1c7c",
+        "contentDigest": "43bf151756dedf25102c6e4d29e1ef9d",
         "type": "Directory",
         "description": "Directory \"src/images\"",
         "owner": "gatsby-source-filesystem"
@@ -1109,7 +1102,7 @@
       "size": 128,
       "prettySize": "128 B",
       "modifiedTime": "2019-04-05T06:03:11.617Z",
-      "accessTime": "2019-04-05T10:41:59.655Z",
+      "accessTime": "2019-04-05T12:25:40.068Z",
       "changeTime": "2019-04-05T06:03:11.617Z",
       "birthTime": "2019-04-05T06:03:11.614Z",
       "root": "/",
@@ -1127,11 +1120,11 @@
       "blksize": 4096,
       "ino": 5468920,
       "blocks": 0,
-      "atimeMs": 1554460919655.1582,
+      "atimeMs": 1554467140068.0403,
       "mtimeMs": 1554444191617.04,
       "ctimeMs": 1554444191617.04,
       "birthtimeMs": 1554444191613.9983,
-      "atime": "2019-04-05T10:41:59.655Z",
+      "atime": "2019-04-05T12:25:40.068Z",
       "mtime": "2019-04-05T06:03:11.617Z",
       "ctime": "2019-04-05T06:03:11.617Z",
       "birthtime": "2019-04-05T06:03:11.614Z"
@@ -1156,7 +1149,7 @@
       "size": 21212,
       "prettySize": "21.2 kB",
       "modifiedTime": "2019-04-05T06:03:11.617Z",
-      "accessTime": "2019-04-05T06:11:20.759Z",
+      "accessTime": "2019-04-05T12:17:41.760Z",
       "changeTime": "2019-04-05T06:03:11.617Z",
       "birthTime": "2019-04-05T06:03:11.617Z",
       "root": "/",
@@ -1174,11 +1167,11 @@
       "blksize": 4096,
       "ino": 5468922,
       "blocks": 48,
-      "atimeMs": 1554444680759.0984,
+      "atimeMs": 1554466661760.2578,
       "mtimeMs": 1554444191617.257,
       "ctimeMs": 1554444191617.257,
       "birthtimeMs": 1554444191617.0317,
-      "atime": "2019-04-05T06:11:20.759Z",
+      "atime": "2019-04-05T12:17:41.760Z",
       "mtime": "2019-04-05T06:03:11.617Z",
       "ctime": "2019-04-05T06:03:11.617Z",
       "birthtime": "2019-04-05T06:03:11.617Z"
@@ -1213,7 +1206,7 @@
       "size": 167273,
       "prettySize": "167 kB",
       "modifiedTime": "2019-04-05T06:03:11.617Z",
-      "accessTime": "2019-04-05T06:12:32.455Z",
+      "accessTime": "2019-04-05T12:17:36.413Z",
       "changeTime": "2019-04-05T06:03:11.617Z",
       "birthTime": "2019-04-05T06:03:11.614Z",
       "root": "/",
@@ -1231,11 +1224,11 @@
       "blksize": 4096,
       "ino": 5468921,
       "blocks": 328,
-      "atimeMs": 1554444752455.069,
+      "atimeMs": 1554466656413.4368,
       "mtimeMs": 1554444191616.8357,
       "ctimeMs": 1554444191616.8357,
       "birthtimeMs": 1554444191614.1345,
-      "atime": "2019-04-05T06:12:32.455Z",
+      "atime": "2019-04-05T12:17:36.413Z",
       "mtime": "2019-04-05T06:03:11.617Z",
       "ctime": "2019-04-05T06:03:11.617Z",
       "birthtime": "2019-04-05T06:03:11.614Z"
@@ -1373,19 +1366,13 @@
   },
   "status": {
     "plugins": {},
-    "PLUGINS_HASH": "c5d6a666ffd184eb10b8826280e9a1e6"
+    "PLUGINS_HASH": "82e26cab6d65ed6b8290c4ae797f3bec"
   },
   "componentDataDependencies": {
     "nodes": {
       "Site": [
         "sq--src-components-layout-js",
         "sq--src-components-seo-js"
-      ],
-      "c17fa5fc-cefb-54c3-9b12-25547fbe9e05": [
-        "sq--src-components-image-js"
-      ],
-      "17d8ff32-4ae2-59d8-a0d0-c5cf7045ceff": [
-        "sq--src-components-image-js"
       ]
     },
     "connections": {}
@@ -1403,10 +1390,6 @@
     "404-html-516": "164/path---404-html-516-62a-NZuapzHg3X9TaN1iIixfv1W23E"
   },
   "components": {
-    "/Users/asd741/Documents/projects/MonsterPetriDish_2.0/.cache/dev-404-page.js": {
-      "query": "",
-      "componentPath": "/Users/asd741/Documents/projects/MonsterPetriDish_2.0/.cache/dev-404-page.js"
-    },
     "/Users/asd741/Documents/projects/MonsterPetriDish_2.0/src/pages/404.js": {
       "query": "",
       "componentPath": "/Users/asd741/Documents/projects/MonsterPetriDish_2.0/src/pages/404.js"
@@ -1429,13 +1412,13 @@
     }
   },
   "staticQueryComponents": {
-    "sq--src-components-image-js": {
-      "name": "usersAsd741DocumentsProjectsMonsterPetriDish20SrcComponentsImageJs2011440971",
-      "componentPath": "/Users/asd741/Documents/projects/MonsterPetriDish_2.0/src/components/image.js",
-      "id": "sq--src-components-image-js",
-      "jsonName": "sq--src-components-image-js",
-      "query": "query usersAsd741DocumentsProjectsMonsterPetriDish20SrcComponentsImageJs2011440971 {\n  placeholderImage: file(relativePath: {eq: \"gatsby-astronaut.png\"}) {\n    childImageSharp {\n      fluid(maxWidth: 300) {\n        ...GatsbyImageSharpFluid\n      }\n    }\n  }\n}\n\nfragment GatsbyImageSharpFluid on ImageSharpFluid {\n  base64\n  aspectRatio\n  src\n  srcSet\n  sizes\n}\n",
-      "hash": 2011440971
+    "sq--src-components-layout-js": {
+      "name": "SiteTitleQuery",
+      "componentPath": "/Users/asd741/Documents/projects/MonsterPetriDish_2.0/src/components/layout.js",
+      "id": "sq--src-components-layout-js",
+      "jsonName": "sq--src-components-layout-js",
+      "query": "query SiteTitleQuery {\n  site {\n    siteMetadata {\n      title\n    }\n  }\n}\n",
+      "hash": 755544856
     },
     "sq--src-components-seo-js": {
       "name": "DefaultSEOQuery",
@@ -1444,14 +1427,6 @@
       "jsonName": "sq--src-components-seo-js",
       "query": "query DefaultSEOQuery {\n  site {\n    siteMetadata {\n      title\n      description\n      author\n    }\n  }\n}\n",
       "hash": 1025518380
-    },
-    "sq--src-components-layout-js": {
-      "name": "SiteTitleQuery",
-      "componentPath": "/Users/asd741/Documents/projects/MonsterPetriDish_2.0/src/components/layout.js",
-      "id": "sq--src-components-layout-js",
-      "jsonName": "sq--src-components-layout-js",
-      "query": "query SiteTitleQuery {\n  site {\n    siteMetadata {\n      title\n    }\n  }\n}\n",
-      "hash": 755544856
     }
   }
 }
