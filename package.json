@@ -31,7 +31,7 @@
   ],
   "license": "MIT",
   "scripts": {
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public -b gh-page",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public -b master",
     "build": "gatsby build",
     "dev": "gatsby develop",
     "start": "npm run develop",
