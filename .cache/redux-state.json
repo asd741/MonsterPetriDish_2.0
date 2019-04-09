@@ -1,13 +1,22 @@
 {
   "nodes": {
     "SitePage /dev-404-page/": {
+      "jsonName": "dev-404-page-5f9",
+      "internalComponentName": "ComponentDev404Page",
       "path": "/dev-404-page/",
+      "component": "/Users/asd741/Documents/projects/MonsterPetriDish_2.0/.cache/dev-404-page.js",
+      "componentChunkName": "component---cache-dev-404-page-js",
+      "context": {},
+      "pluginCreator___NODE": "d48d1c52-fe48-53cb-8f08-aa4b47dde5a5",
+      "pluginCreatorId": "d48d1c52-fe48-53cb-8f08-aa4b47dde5a5",
+      "componentPath": "/Users/asd741/Documents/projects/MonsterPetriDish_2.0/.cache/dev-404-page.js",
       "id": "SitePage /dev-404-page/",
       "parent": null,
       "children": [],
       "internal": {
         "type": "SitePage",
-        "contentDigest": "f91d29e10ba680b413138cf9ed86e655",
+        "contentDigest": "125f60c9319a0be76efcd301407cd8db",
+        "description": "d48d1c52-fe48-53cb-8f08-aa4b47dde5a5",
         "owner": "internal-data-bridge"
       }
     },
@@ -661,9 +670,9 @@
         "owner": "internal-data-bridge"
       }
     },
-    "112c12f8-b222-509b-abe0-dfe93a905df9": {
+    "89107787-71eb-5e06-9b81-1f0aabf2a8ad": {
       "resolve": "/Users/asd741/Documents/projects/MonsterPetriDish_2.0/node_modules/gatsby-plugin-manifest",
-      "id": "112c12f8-b222-509b-abe0-dfe93a905df9",
+      "id": "89107787-71eb-5e06-9b81-1f0aabf2a8ad",
       "name": "gatsby-plugin-manifest",
       "version": "2.0.17",
       "pluginOptions": {
@@ -674,7 +683,7 @@
         "background_color": "#663399",
         "theme_color": "#663399",
         "display": "minimal-ui",
-        "icon": "src/images/gatsby-icon.png"
+        "icon": "src/images/icon.png"
       },
       "nodeAPIs": [
         "onPostBootstrap"
@@ -747,7 +756,7 @@
       "parent": null,
       "children": [],
       "internal": {
-        "contentDigest": "4e88b718d8fe6e4e1b135ca5a57c1516",
+        "contentDigest": "34a29f90fe46f83000f6667a269b1e50",
         "type": "SitePlugin",
         "owner": "internal-data-bridge"
       }
@@ -835,7 +844,7 @@
       "resolve": "/Users/asd741/Documents/projects/MonsterPetriDish_2.0",
       "id": "7374ebf2-d961-52ee-92a2-c25e7cb387a9",
       "name": "default-site-plugin",
-      "version": "bced038db20bcbaacc19107dd7959304",
+      "version": "9f1f66021619dbb65ce943b4de0700df",
       "pluginOptions": {
         "plugins": []
       },
@@ -856,6 +865,14 @@
           {
             "name": "antd",
             "version": "^3.15.2"
+          },
+          {
+            "name": "axios",
+            "version": "^0.18.0"
+          },
+          {
+            "name": "express",
+            "version": "^4.16.4"
           },
           {
             "name": "gatsby",
@@ -938,6 +955,10 @@
             "version": "^2.101.1"
           },
           {
+            "name": "turn-js",
+            "version": "^0.5.4"
+          },
+          {
             "name": "window",
             "version": "^4.2.6"
           }
@@ -959,7 +980,7 @@
       "parent": null,
       "children": [],
       "internal": {
-        "contentDigest": "23e84fafc5adb314d3f2dae248e16d55",
+        "contentDigest": "6b07100abb876cc7301caa04ddb0c566",
         "type": "SitePlugin",
         "owner": "internal-data-bridge"
       }
@@ -1073,14 +1094,16 @@
         "description": "Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.",
         "author": "@gatsbyjs"
       },
+      "port": "8000",
+      "host": "localhost",
       "pathPrefix": "/MonsterPetriDish_2.0",
       "polyfill": true,
-      "buildTime": "2019-04-05T12:25:22.974Z",
+      "buildTime": "2019-04-09T11:19:30.173Z",
       "id": "Site",
       "parent": null,
       "children": [],
       "internal": {
-        "contentDigest": "aca550c18c0101ca3263ec51e3f616df",
+        "contentDigest": "2df7e6e2f73db543932fc47c7af3cd36",
         "type": "Site",
         "owner": "internal-data-bridge"
       }
@@ -1090,7 +1113,7 @@
       "children": [],
       "parent": null,
       "internal": {
-        "contentDigest": "43bf151756dedf25102c6e4d29e1ef9d",
+        "contentDigest": "eac6829d5a1c634265addcd2123e4e27",
         "type": "Directory",
         "description": "Directory \"src/images\"",
         "owner": "gatsby-source-filesystem"
@@ -1099,11 +1122,11 @@
       "absolutePath": "/Users/asd741/Documents/projects/MonsterPetriDish_2.0/src/images",
       "relativePath": "",
       "extension": "",
-      "size": 128,
-      "prettySize": "128 B",
-      "modifiedTime": "2019-04-05T06:03:11.617Z",
-      "accessTime": "2019-04-05T12:25:40.068Z",
-      "changeTime": "2019-04-05T06:03:11.617Z",
+      "size": 256,
+      "prettySize": "256 B",
+      "modifiedTime": "2019-04-07T12:52:27.873Z",
+      "accessTime": "2019-04-09T11:19:47.970Z",
+      "changeTime": "2019-04-07T12:52:27.873Z",
       "birthTime": "2019-04-05T06:03:11.614Z",
       "root": "/",
       "dir": "/Users/asd741/Documents/projects/MonsterPetriDish_2.0/src",
@@ -1113,132 +1136,360 @@
       "relativeDirectory": "..",
       "dev": 16777220,
       "mode": 16877,
-      "nlink": 4,
+      "nlink": 8,
       "uid": 501,
       "gid": 20,
       "rdev": 0,
       "blksize": 4096,
       "ino": 5468920,
       "blocks": 0,
-      "atimeMs": 1554467140068.0403,
-      "mtimeMs": 1554444191617.04,
-      "ctimeMs": 1554444191617.04,
+      "atimeMs": 1554808787969.8113,
+      "mtimeMs": 1554641547872.6443,
+      "ctimeMs": 1554641547872.6443,
       "birthtimeMs": 1554444191613.9983,
-      "atime": "2019-04-05T12:25:40.068Z",
-      "mtime": "2019-04-05T06:03:11.617Z",
-      "ctime": "2019-04-05T06:03:11.617Z",
+      "atime": "2019-04-09T11:19:47.970Z",
+      "mtime": "2019-04-07T12:52:27.873Z",
+      "ctime": "2019-04-07T12:52:27.873Z",
       "birthtime": "2019-04-05T06:03:11.614Z"
     },
-    "6dae965e-ec50-5e81-bc56-2a6b609812ba": {
-      "id": "6dae965e-ec50-5e81-bc56-2a6b609812ba",
+    "33f0419d-868a-5cdc-9d71-5663a08acb8c": {
+      "id": "33f0419d-868a-5cdc-9d71-5663a08acb8c",
       "children": [
-        "a3ed8603-4780-5f13-9eed-4ae2778e37e1"
+        "b31aa21a-402e-5fc7-8c35-b63e018fa412"
       ],
       "parent": null,
       "internal": {
-        "contentDigest": "4a9773549091c227cd2eb82ccd9c5e3a",
+        "contentDigest": "ca606747b51c1696c37149481f33288e",
         "type": "File",
         "mediaType": "image/png",
-        "description": "File \"src/images/gatsby-icon.png\"",
+        "description": "File \"src/images/icon.png\"",
         "owner": "gatsby-source-filesystem"
       },
       "sourceInstanceName": "images",
-      "absolutePath": "/Users/asd741/Documents/projects/MonsterPetriDish_2.0/src/images/gatsby-icon.png",
-      "relativePath": "gatsby-icon.png",
+      "absolutePath": "/Users/asd741/Documents/projects/MonsterPetriDish_2.0/src/images/icon.png",
+      "relativePath": "icon.png",
       "extension": "png",
-      "size": 21212,
-      "prettySize": "21.2 kB",
-      "modifiedTime": "2019-04-05T06:03:11.617Z",
-      "accessTime": "2019-04-05T12:17:41.760Z",
-      "changeTime": "2019-04-05T06:03:11.617Z",
-      "birthTime": "2019-04-05T06:03:11.617Z",
+      "size": 19391,
+      "prettySize": "19.4 kB",
+      "modifiedTime": "2019-04-07T12:49:48.881Z",
+      "accessTime": "2019-04-07T12:51:35.373Z",
+      "changeTime": "2019-04-07T12:51:34.306Z",
+      "birthTime": "2019-04-07T12:49:48.864Z",
       "root": "/",
       "dir": "/Users/asd741/Documents/projects/MonsterPetriDish_2.0/src/images",
-      "base": "gatsby-icon.png",
+      "base": "icon.png",
       "ext": ".png",
-      "name": "gatsby-icon",
+      "name": "icon",
       "relativeDirectory": "",
       "dev": 16777220,
-      "mode": 33261,
+      "mode": 33188,
       "nlink": 1,
       "uid": 501,
       "gid": 20,
       "rdev": 0,
       "blksize": 4096,
-      "ino": 5468922,
-      "blocks": 48,
-      "atimeMs": 1554466661760.2578,
-      "mtimeMs": 1554444191617.257,
-      "ctimeMs": 1554444191617.257,
-      "birthtimeMs": 1554444191617.0317,
-      "atime": "2019-04-05T12:17:41.760Z",
-      "mtime": "2019-04-05T06:03:11.617Z",
-      "ctime": "2019-04-05T06:03:11.617Z",
-      "birthtime": "2019-04-05T06:03:11.617Z"
+      "ino": 5519821,
+      "blocks": 40,
+      "atimeMs": 1554641495373.2712,
+      "mtimeMs": 1554641388881.4902,
+      "ctimeMs": 1554641494306.4443,
+      "birthtimeMs": 1554641388864.081,
+      "atime": "2019-04-07T12:51:35.373Z",
+      "mtime": "2019-04-07T12:49:48.881Z",
+      "ctime": "2019-04-07T12:51:34.306Z",
+      "birthtime": "2019-04-07T12:49:48.864Z"
     },
-    "a3ed8603-4780-5f13-9eed-4ae2778e37e1": {
-      "id": "a3ed8603-4780-5f13-9eed-4ae2778e37e1",
-      "children": [],
-      "parent": "6dae965e-ec50-5e81-bc56-2a6b609812ba",
+    "c257ae1d-ad7b-5cca-9ce7-f26eb632a747": {
+      "id": "c257ae1d-ad7b-5cca-9ce7-f26eb632a747",
+      "children": [
+        "422e0bc5-b6a2-50ed-b707-7ce102d92020"
+      ],
+      "parent": null,
       "internal": {
-        "contentDigest": "4a9773549091c227cd2eb82ccd9c5e3a",
+        "contentDigest": "ca606747b51c1696c37149481f33288e",
+        "type": "File",
+        "mediaType": "image/png",
+        "description": "File \"src/images/role1.png\"",
+        "owner": "gatsby-source-filesystem"
+      },
+      "sourceInstanceName": "images",
+      "absolutePath": "/Users/asd741/Documents/projects/MonsterPetriDish_2.0/src/images/role1.png",
+      "relativePath": "role1.png",
+      "extension": "png",
+      "size": 19391,
+      "prettySize": "19.4 kB",
+      "modifiedTime": "2019-04-07T12:49:48.881Z",
+      "accessTime": "2019-04-07T12:50:28.888Z",
+      "changeTime": "2019-04-07T12:50:26.335Z",
+      "birthTime": "2019-04-07T12:49:48.864Z",
+      "root": "/",
+      "dir": "/Users/asd741/Documents/projects/MonsterPetriDish_2.0/src/images",
+      "base": "role1.png",
+      "ext": ".png",
+      "name": "role1",
+      "relativeDirectory": "",
+      "dev": 16777220,
+      "mode": 33188,
+      "nlink": 1,
+      "uid": 501,
+      "gid": 20,
+      "rdev": 0,
+      "blksize": 4096,
+      "ino": 5519756,
+      "blocks": 40,
+      "atimeMs": 1554641428888.4373,
+      "mtimeMs": 1554641388881.4902,
+      "ctimeMs": 1554641426334.7817,
+      "birthtimeMs": 1554641388864.081,
+      "atime": "2019-04-07T12:50:28.888Z",
+      "mtime": "2019-04-07T12:49:48.881Z",
+      "ctime": "2019-04-07T12:50:26.335Z",
+      "birthtime": "2019-04-07T12:49:48.864Z"
+    },
+    "b31aa21a-402e-5fc7-8c35-b63e018fa412": {
+      "id": "b31aa21a-402e-5fc7-8c35-b63e018fa412",
+      "children": [],
+      "parent": "33f0419d-868a-5cdc-9d71-5663a08acb8c",
+      "internal": {
+        "contentDigest": "ca606747b51c1696c37149481f33288e",
         "type": "ImageSharp",
         "owner": "gatsby-transformer-sharp"
       }
     },
-    "c17fa5fc-cefb-54c3-9b12-25547fbe9e05": {
-      "id": "c17fa5fc-cefb-54c3-9b12-25547fbe9e05",
+    "422e0bc5-b6a2-50ed-b707-7ce102d92020": {
+      "id": "422e0bc5-b6a2-50ed-b707-7ce102d92020",
+      "children": [],
+      "parent": "c257ae1d-ad7b-5cca-9ce7-f26eb632a747",
+      "internal": {
+        "contentDigest": "ca606747b51c1696c37149481f33288e",
+        "type": "ImageSharp",
+        "owner": "gatsby-transformer-sharp"
+      }
+    },
+    "b931c20a-2ca0-54eb-8170-94507d4fa5f1": {
+      "id": "b931c20a-2ca0-54eb-8170-94507d4fa5f1",
       "children": [
-        "17d8ff32-4ae2-59d8-a0d0-c5cf7045ceff"
+        "8a11d69b-b181-565f-a5ae-119c003def8d"
       ],
       "parent": null,
       "internal": {
-        "contentDigest": "6d91c86c0fde632ba4cd01062fd9ccfa",
+        "contentDigest": "77fb29614592e60815c8c74bc97c33c4",
         "type": "File",
-        "mediaType": "image/png",
-        "description": "File \"src/images/gatsby-astronaut.png\"",
+        "mediaType": "image/jpeg",
+        "description": "File \"src/images/bg.jpg\"",
         "owner": "gatsby-source-filesystem"
       },
       "sourceInstanceName": "images",
-      "absolutePath": "/Users/asd741/Documents/projects/MonsterPetriDish_2.0/src/images/gatsby-astronaut.png",
-      "relativePath": "gatsby-astronaut.png",
-      "extension": "png",
-      "size": 167273,
-      "prettySize": "167 kB",
-      "modifiedTime": "2019-04-05T06:03:11.617Z",
-      "accessTime": "2019-04-05T12:17:36.413Z",
-      "changeTime": "2019-04-05T06:03:11.617Z",
-      "birthTime": "2019-04-05T06:03:11.614Z",
+      "absolutePath": "/Users/asd741/Documents/projects/MonsterPetriDish_2.0/src/images/bg.jpg",
+      "relativePath": "bg.jpg",
+      "extension": "jpg",
+      "size": 119969,
+      "prettySize": "120 kB",
+      "modifiedTime": "2019-04-07T10:12:50.961Z",
+      "accessTime": "2019-04-07T12:48:33.791Z",
+      "changeTime": "2019-04-07T12:48:32.769Z",
+      "birthTime": "2019-04-07T10:12:50.917Z",
       "root": "/",
       "dir": "/Users/asd741/Documents/projects/MonsterPetriDish_2.0/src/images",
-      "base": "gatsby-astronaut.png",
-      "ext": ".png",
-      "name": "gatsby-astronaut",
+      "base": "bg.jpg",
+      "ext": ".jpg",
+      "name": "bg",
       "relativeDirectory": "",
       "dev": 16777220,
-      "mode": 33261,
+      "mode": 33188,
       "nlink": 1,
       "uid": 501,
       "gid": 20,
       "rdev": 0,
       "blksize": 4096,
-      "ino": 5468921,
-      "blocks": 328,
-      "atimeMs": 1554466656413.4368,
-      "mtimeMs": 1554444191616.8357,
-      "ctimeMs": 1554444191616.8357,
-      "birthtimeMs": 1554444191614.1345,
-      "atime": "2019-04-05T12:17:36.413Z",
-      "mtime": "2019-04-05T06:03:11.617Z",
-      "ctime": "2019-04-05T06:03:11.617Z",
-      "birthtime": "2019-04-05T06:03:11.614Z"
+      "ino": 5519427,
+      "blocks": 240,
+      "atimeMs": 1554641313790.8047,
+      "mtimeMs": 1554631970961.4731,
+      "ctimeMs": 1554641312768.965,
+      "birthtimeMs": 1554631970917.1047,
+      "atime": "2019-04-07T12:48:33.791Z",
+      "mtime": "2019-04-07T10:12:50.961Z",
+      "ctime": "2019-04-07T12:48:32.769Z",
+      "birthtime": "2019-04-07T10:12:50.917Z"
     },
-    "17d8ff32-4ae2-59d8-a0d0-c5cf7045ceff": {
-      "id": "17d8ff32-4ae2-59d8-a0d0-c5cf7045ceff",
+    "8a11d69b-b181-565f-a5ae-119c003def8d": {
+      "id": "8a11d69b-b181-565f-a5ae-119c003def8d",
       "children": [],
-      "parent": "c17fa5fc-cefb-54c3-9b12-25547fbe9e05",
+      "parent": "b931c20a-2ca0-54eb-8170-94507d4fa5f1",
       "internal": {
-        "contentDigest": "6d91c86c0fde632ba4cd01062fd9ccfa",
+        "contentDigest": "77fb29614592e60815c8c74bc97c33c4",
+        "type": "ImageSharp",
+        "owner": "gatsby-transformer-sharp"
+      }
+    },
+    "1493c2ba-1f7d-5fb4-b2b2-3371fbba0344": {
+      "id": "1493c2ba-1f7d-5fb4-b2b2-3371fbba0344",
+      "children": [
+        "5b5f0643-b5fc-54fb-9d87-00ac20f39061"
+      ],
+      "parent": null,
+      "internal": {
+        "contentDigest": "5c9a119045f4dc8577b163fecb7e2059",
+        "type": "File",
+        "mediaType": "image/png",
+        "description": "File \"src/images/banner2.png\"",
+        "owner": "gatsby-source-filesystem"
+      },
+      "sourceInstanceName": "images",
+      "absolutePath": "/Users/asd741/Documents/projects/MonsterPetriDish_2.0/src/images/banner2.png",
+      "relativePath": "banner2.png",
+      "extension": "png",
+      "size": 107809,
+      "prettySize": "108 kB",
+      "modifiedTime": "2019-04-07T12:47:30.092Z",
+      "accessTime": "2019-04-07T12:47:34.331Z",
+      "changeTime": "2019-04-07T12:47:30.093Z",
+      "birthTime": "2019-04-06T04:23:23.026Z",
+      "root": "/",
+      "dir": "/Users/asd741/Documents/projects/MonsterPetriDish_2.0/src/images",
+      "base": "banner2.png",
+      "ext": ".png",
+      "name": "banner2",
+      "relativeDirectory": "",
+      "dev": 16777220,
+      "mode": 33188,
+      "nlink": 1,
+      "uid": 501,
+      "gid": 20,
+      "rdev": 0,
+      "blksize": 4096,
+      "ino": 5502696,
+      "blocks": 216,
+      "atimeMs": 1554641254330.9834,
+      "mtimeMs": 1554641250092,
+      "ctimeMs": 1554641250092.7935,
+      "birthtimeMs": 1554524603026.4204,
+      "atime": "2019-04-07T12:47:34.331Z",
+      "mtime": "2019-04-07T12:47:30.092Z",
+      "ctime": "2019-04-07T12:47:30.093Z",
+      "birthtime": "2019-04-06T04:23:23.026Z"
+    },
+    "5b5f0643-b5fc-54fb-9d87-00ac20f39061": {
+      "id": "5b5f0643-b5fc-54fb-9d87-00ac20f39061",
+      "children": [],
+      "parent": "1493c2ba-1f7d-5fb4-b2b2-3371fbba0344",
+      "internal": {
+        "contentDigest": "5c9a119045f4dc8577b163fecb7e2059",
+        "type": "ImageSharp",
+        "owner": "gatsby-transformer-sharp"
+      }
+    },
+    "d528b61f-d7a2-55fc-ab69-6b996e7f0ab5": {
+      "id": "d528b61f-d7a2-55fc-ab69-6b996e7f0ab5",
+      "children": [
+        "04e3cec9-7f7e-514a-9885-3b2580da5268"
+      ],
+      "parent": null,
+      "internal": {
+        "contentDigest": "0c339e2755f6babe9f3e772c2bf4402b",
+        "type": "File",
+        "mediaType": "image/png",
+        "description": "File \"src/images/banner.png\"",
+        "owner": "gatsby-source-filesystem"
+      },
+      "sourceInstanceName": "images",
+      "absolutePath": "/Users/asd741/Documents/projects/MonsterPetriDish_2.0/src/images/banner.png",
+      "relativePath": "banner.png",
+      "extension": "png",
+      "size": 151162,
+      "prettySize": "151 kB",
+      "modifiedTime": "2019-04-06T04:23:31.891Z",
+      "accessTime": "2019-04-06T04:26:23.516Z",
+      "changeTime": "2019-04-06T04:26:19.372Z",
+      "birthTime": "2019-04-06T04:23:31.806Z",
+      "root": "/",
+      "dir": "/Users/asd741/Documents/projects/MonsterPetriDish_2.0/src/images",
+      "base": "banner.png",
+      "ext": ".png",
+      "name": "banner",
+      "relativeDirectory": "",
+      "dev": 16777220,
+      "mode": 33188,
+      "nlink": 1,
+      "uid": 501,
+      "gid": 20,
+      "rdev": 0,
+      "blksize": 4096,
+      "ino": 5502695,
+      "blocks": 296,
+      "atimeMs": 1554524783516.217,
+      "mtimeMs": 1554524611890.7551,
+      "ctimeMs": 1554524779372.3813,
+      "birthtimeMs": 1554524611805.7559,
+      "atime": "2019-04-06T04:26:23.516Z",
+      "mtime": "2019-04-06T04:23:31.891Z",
+      "ctime": "2019-04-06T04:26:19.372Z",
+      "birthtime": "2019-04-06T04:23:31.806Z"
+    },
+    "04e3cec9-7f7e-514a-9885-3b2580da5268": {
+      "id": "04e3cec9-7f7e-514a-9885-3b2580da5268",
+      "children": [],
+      "parent": "d528b61f-d7a2-55fc-ab69-6b996e7f0ab5",
+      "internal": {
+        "contentDigest": "0c339e2755f6babe9f3e772c2bf4402b",
+        "type": "ImageSharp",
+        "owner": "gatsby-transformer-sharp"
+      }
+    },
+    "ab432586-ef55-5d62-ad99-397dd4ec593f": {
+      "id": "ab432586-ef55-5d62-ad99-397dd4ec593f",
+      "children": [
+        "7308c3ff-3357-5c29-b8e6-4963735d2193"
+      ],
+      "parent": null,
+      "internal": {
+        "contentDigest": "0165a0c9174b91b07a0d5f1986c26f83",
+        "type": "File",
+        "mediaType": "image/jpeg",
+        "description": "File \"src/images/paint.jpg\"",
+        "owner": "gatsby-source-filesystem"
+      },
+      "sourceInstanceName": "images",
+      "absolutePath": "/Users/asd741/Documents/projects/MonsterPetriDish_2.0/src/images/paint.jpg",
+      "relativePath": "paint.jpg",
+      "extension": "jpg",
+      "size": 504709,
+      "prettySize": "505 kB",
+      "modifiedTime": "2019-04-07T12:52:27.887Z",
+      "accessTime": "2019-04-07T12:52:30.098Z",
+      "changeTime": "2019-04-07T12:52:27.888Z",
+      "birthTime": "2019-03-29T11:37:04.000Z",
+      "root": "/",
+      "dir": "/Users/asd741/Documents/projects/MonsterPetriDish_2.0/src/images",
+      "base": "paint.jpg",
+      "ext": ".jpg",
+      "name": "paint",
+      "relativeDirectory": "",
+      "dev": 16777220,
+      "mode": 33279,
+      "nlink": 1,
+      "uid": 501,
+      "gid": 20,
+      "rdev": 0,
+      "blksize": 4096,
+      "ino": 5502694,
+      "blocks": 992,
+      "atimeMs": 1554641550097.7073,
+      "mtimeMs": 1554641547887,
+      "ctimeMs": 1554641547888.0615,
+      "birthtimeMs": 1553859424000,
+      "atime": "2019-04-07T12:52:30.098Z",
+      "mtime": "2019-04-07T12:52:27.887Z",
+      "ctime": "2019-04-07T12:52:27.888Z",
+      "birthtime": "2019-03-29T11:37:04.000Z"
+    },
+    "7308c3ff-3357-5c29-b8e6-4963735d2193": {
+      "id": "7308c3ff-3357-5c29-b8e6-4963735d2193",
+      "children": [],
+      "parent": "ab432586-ef55-5d62-ad99-397dd4ec593f",
+      "internal": {
+        "contentDigest": "0165a0c9174b91b07a0d5f1986c26f83",
         "type": "ImageSharp",
         "owner": "gatsby-transformer-sharp"
       }
@@ -1366,13 +1617,13 @@
   },
   "status": {
     "plugins": {},
-    "PLUGINS_HASH": "82e26cab6d65ed6b8290c4ae797f3bec"
+    "PLUGINS_HASH": "f712e489f59f4e59b12e8c9253ba9612"
   },
   "componentDataDependencies": {
     "nodes": {
       "Site": [
-        "sq--src-components-layout-js",
-        "sq--src-components-seo-js"
+        "sq--src-components-seo-js",
+        "sq--src-components-layout-js"
       ]
     },
     "connections": {}
@@ -1390,6 +1641,10 @@
     "404-html-516": "164/path---404-html-516-62a-NZuapzHg3X9TaN1iIixfv1W23E"
   },
   "components": {
+    "/Users/asd741/Documents/projects/MonsterPetriDish_2.0/.cache/dev-404-page.js": {
+      "query": "",
+      "componentPath": "/Users/asd741/Documents/projects/MonsterPetriDish_2.0/.cache/dev-404-page.js"
+    },
     "/Users/asd741/Documents/projects/MonsterPetriDish_2.0/src/pages/404.js": {
       "query": "",
       "componentPath": "/Users/asd741/Documents/projects/MonsterPetriDish_2.0/src/pages/404.js"

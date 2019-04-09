@@ -5,8 +5,10 @@ import { Provider } from "react-redux";
 import { createStore } from "redux";
 import { reducers } from "../redux/reducers";
 import { Link } from "gatsby";
-import QueueAnim from 'rc-queue-anim';
+import QueueAnim from "rc-queue-anim";
+import axios from "axios";
 import "./layout.sass";
+import { Helmet } from "react-helmet";
 let store = createStore(reducers);
 const Layout = ({ children }) => (
   <StaticQuery
@@ -23,7 +25,18 @@ const Layout = ({ children }) => (
       return (
         <Provider store={store}>
           <>
-            <QueueAnim type='scale'>{children}</QueueAnim>
+            <Helmet>
+              <meta charSet="utf-8" />
+              <title>魔物培養皿官網</title>
+            </Helmet>
+            <QueueAnim type="scale" className='bg'>
+              <div
+                className="page-wrapper"
+                key={typeof window != "undefined" && window.location.href}
+              >
+                {children}
+              </div>
+            </QueueAnim>
             <nav className="navbar">
               <Link to="/" className="index-link">
                 大廳
