@@ -1,0 +1,27 @@
+[
+    {
+        "componentChunkName": "component---src-pages-index-js",
+        "jsonName": "index",
+        "path": "/"
+    },
+    {
+        "componentChunkName": "component---cache-dev-404-page-js",
+        "jsonName": "dev-404-page-5f9",
+        "path": "/dev-404-page/"
+    },
+    {
+        "componentChunkName": "component---src-pages-download-js",
+        "jsonName": "download-058",
+        "path": "/download/"
+    },
+    {
+        "componentChunkName": "component---src-pages-role-js",
+        "jsonName": "role-7d3",
+        "path": "/role/"
+    },
+    {
+        "componentChunkName": "component---src-pages-story-js",
+        "jsonName": "story-e98",
+        "path": "/story/"
+    }
+]

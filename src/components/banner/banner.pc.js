@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-class Pc extends Component {
+export default class Pc extends Component {
   constructor(props){
     super(props);
   }
@@ -894,4 +894,4 @@ class Pc extends Component {
     );
   }
 }
-export default connect(state => state)(Pc);
+

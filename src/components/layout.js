@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { StaticQuery, graphql } from "gatsby";
-import { Provider } from "react-redux";
-import { createStore } from "redux";
-import { reducers } from "../redux/reducers";
+// import { Provider } from "react-redux";
+// import { createStore } from "redux";
+// import { reducers } from "../redux/reducers";
 import { Link } from "gatsby";
 import QueueAnim from "rc-queue-anim";
-import axios from "axios";
+// import axios from "axios";
 import "./layout.sass";
 import { Helmet } from "react-helmet";
-let store = createStore(reducers);
+// let store = createStore(reducers);
 const Layout = ({ children }) => (
   <StaticQuery
     query={graphql`
@@ -23,7 +23,7 @@ const Layout = ({ children }) => (
     `}
     render={data => {
       return (
-        <Provider store={store}>
+        // <Provider>
           <>
             <Helmet>
               <meta charSet="utf-8" />
@@ -52,7 +52,7 @@ const Layout = ({ children }) => (
               </Link>
             </nav>
           </>
-        </Provider>
+        // </Provider>
       );
     }}
   />
