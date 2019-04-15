@@ -1,0 +1,38 @@
+$yellow: #ffdab9
+.book
+    position: absolute
+    top: 50%
+    left: 50%
+    perspective: 1000px
+    -webkit-transform: translate(-50%, -50%)
+    transform: translate(-50%, -50%)
+    max-width: 56.33vh
+    max-height: 80vh
+    width: 40vw
+    height: 57.6vw
+    & .page
+        position: absolute
+        overflow: hidden
+        max-width: inherit
+        max-height: inherit
+        width: inherit
+        height: inherit
+        transform-origin: left center
+        background-color: #ffdab9
+        box-shadow: -1px -1px 1px 0px grey inset
+    & .cover
+        z-index: 99
+        background: url('../../images/bg.jpg')
+        & .title
+            margin: 0
+            padding: 0.83em 0
+            text-align: center
+            font-size: 30px
+            color: white
+    & .mid-page
+        background-color: $yellow
+    & .last-page
+        z-index: 0
+        background-color: white
+
+
