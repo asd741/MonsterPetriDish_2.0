@@ -17,12 +17,12 @@ const Book = () => {
     <div className='book-page-wrapper'>
       <div className="book" onMouseDown={e => {
         const that=e.target;
-        that.onmousemove=()=>{
-          console.log(that,'move');
+        that.onmousemove=e=>{
+          // console.log(that,'move');
         }
-        that.onmouseup=()=>{
+        document.getElementsByClassName('book-page-wrapper')[0].onmouseup=()=>{
           that.onmousemove=null;
-          console.log(that,'move end');
+          // console.log(that,'move end');
         }
       }}>
         <div className="cover page">
