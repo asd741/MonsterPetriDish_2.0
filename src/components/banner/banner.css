@@ -337,8 +337,8 @@
 .touch .ui-input {
   display: none;
 }
-.pc-page {
-  display: none;
+.banner-page-wrapper {
+  position: relative;
+  max-height: 100vh;
+  overflow: hidden;
 }
-
-

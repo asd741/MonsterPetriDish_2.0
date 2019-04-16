@@ -1,4 +1,8 @@
-$yellow: #ffdab9
+$page-color: #fffbec
+.book-page-wrapper
+    position: absolute
+    width: 100vw
+    height: 100vh
 .book
     position: absolute
     top: 50%
@@ -6,8 +10,8 @@ $yellow: #ffdab9
     perspective: 1000px
     -webkit-transform: translate(-50%, -50%)
     transform: translate(-50%, -50%)
-    max-width: 56.33vh
-    max-height: 80vh
+    max-width: 50.33vh
+    max-height: 70vh
     width: 40vw
     height: 57.6vw
     & .page
@@ -22,7 +26,8 @@ $yellow: #ffdab9
         box-shadow: -1px -1px 1px 0px grey inset
     & .cover
         z-index: 99
-        background: url('../../images/bg.jpg')
+        background: #303030
+        transform: rotateY(-25deg)
         & .title
             margin: 0
             padding: 0.83em 0
@@ -30,9 +35,9 @@ $yellow: #ffdab9
             font-size: 30px
             color: white
     & .mid-page
-        background-color: $yellow
+        background-color: $page-color
     & .last-page
         z-index: 0
         background-color: white
-
+        transform: rotateY(0deg)
 
