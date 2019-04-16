@@ -762,7 +762,7 @@ export default class Pc extends Component {
   }
   render() {
     return (
-      <div className='banner-page-wrapper'>
+      <>
         {/* <!-- <div style="text-align:center;clear:both;position:absolute;top:0;left:260px">
           <script src="/gg_bd_ad_720x90.js" type="text/javascript"></script>
           <script src="/follow.js" type="text/javascript"></script>
@@ -890,7 +890,7 @@ export default class Pc extends Component {
             </div>
           </div>
         </div>
-      </div>
+      </>
     );
   }
 }

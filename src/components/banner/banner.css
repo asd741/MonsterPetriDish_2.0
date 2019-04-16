@@ -1,5 +1,8 @@
 
 #banner-page{
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
   font-family: "Avenir", "Helvetica Neue", Helvetica, Arial, sans-serif;
   /* background: linear-gradient(to bottom, #cbebdb, #53a4c5); */
 }
@@ -16,7 +19,7 @@
   line-height: 1.5em;
   letter-spacing: 10px;
 }
-@media screen and (max-width:700px){
+@media screen and (max-width:600px){
   #mobi-page-h1 {
     position: absolute;
     top: 10%;
@@ -336,9 +339,4 @@
 
 .touch .ui-input {
   display: none;
-}
-.banner-page-wrapper {
-  position: relative;
-  max-height: 100vh;
-  overflow: hidden;
 }

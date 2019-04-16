@@ -18,11 +18,11 @@ const Book = () => {
       <div className="book" onMouseDown={e => {
         const that=e.target;
         that.onmousemove=e=>{
-          // console.log(that,'move');
+          console.log(that,'move');
         }
         document.getElementsByClassName('book-page-wrapper')[0].onmouseup=()=>{
           that.onmousemove=null;
-          // console.log(that,'move end');
+          console.log(that,'move end');
         }
       }}>
         <div className="cover page">
