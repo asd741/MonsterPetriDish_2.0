@@ -14,17 +14,27 @@ const Book = () => {
     })
   })
   return (
-    <div className='book-page-wrapper'>
-      <div className="book" onMouseDown={e => {
-        const that=e.target;
-        that.onmousemove=e=>{
-          console.log(that,'move');
+    <div className='book-page-wrapper' onMouseDown={e => {
+      if (e.target.classList.contains('page') === true) {
+        let that = e.target, sX = e.clientX, vX, thatdeg;
+        that.onmousemove = e => {
+          vX = sX - e.clientX;
+          thatdeg = parseInt(that.style.transform.match(/-?\d+/)[0]);
+          if ((thatdeg - vX) < -180 || (thatdeg - vX) > 0) {
+            thatdeg = Math.max(-180, thatdeg);
+            thatdeg = Math.min(0, thatdeg);
+            that.style.transform = `rotateY(${thatdeg}deg`;
+          }else{
+            that.style.transform = `rotateY(${thatdeg - vX}deg`;
+          }
+          sX = e.clientX;
         }
-        document.getElementsByClassName('book-page-wrapper')[0].onmouseup=()=>{
-          that.onmousemove=null;
-          console.log(that,'move end');
+        document.getElementsByClassName('book-page-wrapper')[0].onmouseup = e => {
+          that.onmousemove = null;
         }
-      }}>
+      }
+    }}>
+      <div className="book">
         <div className="cover page">
           <h2 className="title">遊戲手冊</h2>
         </div>
