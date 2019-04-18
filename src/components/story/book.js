@@ -12,26 +12,47 @@ const Book = () => {
       const d = (aMidPage.length - index) * gap;
       item.style = `transform: rotateY(${d}deg);z-index:${aMidPage.length - index}`
     })
+    window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
+      window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
   })
+
+  let handleTurnPage = e => {
+    let that = e.target,
+      sX = e.clientX,
+      vX,
+      thatdeg,
+      oWrap = document.getElementsByClassName('book-page-wrapper')[0],
+      handleTransition = () => {
+        if (vX && that && thatdeg && Math.abs(vX) > 0.1) {
+          thatdeg=thatdeg - vX;
+          that.style.transform = `rotateY(${thatdeg}deg`;
+          vX *= 0.95;
+          console.log('vX', vX,'thatdeg',thatdeg);
+          requestAnimationFrame(handleTransition);
+        }
+      }
+    oWrap.onmousemove = e => {
+      vX = (sX - e.clientX) / 2;
+      thatdeg = parseInt(that.style.transform.match(/-?\d+/)[0]);
+      if ((thatdeg - vX) < -180 || (thatdeg - vX) > 0) {
+        thatdeg = Math.max(-180, thatdeg);
+        thatdeg = Math.min(0, thatdeg);
+        that.style.transform = `rotateY(${thatdeg}deg`;
+      } else {
+        that.style.transform = `rotateY(${thatdeg - vX}deg`;
+      }
+      sX = e.clientX;
+    }
+    oWrap.onmouseup = () => {
+      handleTransition();
+      oWrap.onmousemove = null;
+    }
+  }
+
   return (
     <div className='book-page-wrapper' onMouseDown={e => {
       if (e.target.classList.contains('page') === true) {
-        let that = e.target, sX = e.clientX, vX, thatdeg;
-        that.onmousemove = e => {
-          vX = sX - e.clientX;
-          thatdeg = parseInt(that.style.transform.match(/-?\d+/)[0]);
-          if ((thatdeg - vX) < -180 || (thatdeg - vX) > 0) {
-            thatdeg = Math.max(-180, thatdeg);
-            thatdeg = Math.min(0, thatdeg);
-            that.style.transform = `rotateY(${thatdeg}deg`;
-          }else{
-            that.style.transform = `rotateY(${thatdeg - vX}deg`;
-          }
-          sX = e.clientX;
-        }
-        document.getElementsByClassName('book-page-wrapper')[0].onmouseup = e => {
-          that.onmousemove = null;
-        }
+        handleTurnPage(e);
       }
     }}>
       <div className="book">
