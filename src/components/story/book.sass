@@ -15,7 +15,8 @@ $page-color: #fffbec
     max-height: 70vh
     width: 40vw
     height: 57.6vw
-    cursor: grab
+    &:hover
+        cursor: grab
     & .page
         position: absolute
         overflow: hidden
@@ -37,11 +38,10 @@ $page-color: #fffbec
             font-size: 30px
             color: white
     & .mid-page
+        z-index: 1
         background-color: $page-color
     & .last-page
         z-index: 0
         background-color: white
         transform: rotateY(0deg)
-.grabbing
-    cursor: grabbing !important
 
