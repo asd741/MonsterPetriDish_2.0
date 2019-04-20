@@ -27,10 +27,12 @@ $page-color: #fffbec
         transform-origin: left center
         background-color: #ffdab9
         box-shadow: -1px -1px 1px 0px grey inset
+        transition: transform .3s
+        transform: rotateY(0deg)
     & .cover
         z-index: 99
         background: #303030
-        transform: rotateY(-25deg)
+        // transform: rotateY(-25deg)
         & .title
             margin: 0
             padding: 0.83em 0
@@ -43,5 +45,5 @@ $page-color: #fffbec
     & .last-page
         z-index: 0
         background-color: white
-        transform: rotateY(0deg)
+        // transform: rotateY(0deg)
 
