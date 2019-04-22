@@ -20,7 +20,7 @@ const Book = () => {
       index = [].indexOf.call(aPage, that),
       sX = e.clientX,
       vX,
-      thatdeg=aPageDegs[index],
+      thatdeg = aPageDegs[index],
       leftBeyond = aPageDegs[index - 1] || -180,
       rightBeyond = aPageDegs[index + 1] || 0,
       oWrap = document.getElementsByClassName('book-page-wrapper')[0],
@@ -29,17 +29,15 @@ const Book = () => {
         //-175  -170  -165
         //gap=5  thatdeg=-170
         //-170-5=-175   -170+5=-165
-        // console.log(gap,leftBeyond,thatdeg,rightBeyond);
-
         if ((thatdeg - gap) < leftBeyond) {
-          thatdeg = leftBeyond + gap;
+          thatdeg = parseInt(leftBeyond + gap);
           that.style.transform = `rotateY(${thatdeg}deg`;
           aPageDegs[index] = thatdeg;
           touchBeyond = true;
           return;
         }
         if ((thatdeg + gap) > rightBeyond) {
-          thatdeg = rightBeyond - gap;
+          thatdeg = parseInt(rightBeyond - gap);
           that.style.transform = `rotateY(${thatdeg}deg`;
           aPageDegs[index] = thatdeg;
           touchBeyond = true;
@@ -47,32 +45,37 @@ const Book = () => {
         }
         touchBeyond = false;
       },
+      handleZ_Index = () => {
+        // console.log(aPageDegs,aPageDegs.sort());
+      },
       handleTransition = () => {
+        console.log(thatdeg,vX);
         isTouchBeyond();
-        console.log(touchBeyond);
-        if (touchBeyond !== true && Math.abs(vX) >= 0.3) {
-          thatdeg = thatdeg - (vX * 0.2);
+        if (touchBeyond !== true && Math.abs(vX) >= 1) {
+          thatdeg = parseInt(thatdeg - (vX * 0.5));
           that.style.transform = `rotateY(${thatdeg}deg`;
-          Math.abs(Math.abs(thatdeg) - 90) < 20 ? vX *= 1.02 : vX *= 0.95;//兩個abs是解決90度左右很難翻頁的問題，然後*=是做受力運動
-          requestAnimationFrame(handleTransition);
+          Math.abs(Math.abs(thatdeg) - 90) < 20 ? vX *= 1.01 : vX *= 0.95;//兩個abs是解決90度左右很難翻頁的問題，然後*=是做受力運動
           aPageDegs[index] = thatdeg;
+          handleZ_Index();
+          requestAnimationFrame(handleTransition);
         }
       }
     oWrap.onmousemove = e => {
       isTouchBeyond();
       if (touchBeyond !== true) {
         vX = (sX - e.clientX) / 2;
-        thatdeg = parseInt(that.style.transform.match(/-?\d+/)[0]);
-        that.style.transform = `rotateY(${thatdeg - vX}deg`;
+        thatdeg = parseInt(that.style.transform.match(/-?\d+/)[0] - vX);
+        that.style.transform = `rotateY(${thatdeg}deg`;
         aPageDegs[index] = thatdeg;
         sX = e.clientX;
+        handleZ_Index();
       } else {
         vX = 0;
       }
     }
     oWrap.onmouseup = () => {
       oWrap.onmousemove = null;
-      if (Math.abs(vX) >= 0.3) {
+      if (Math.abs(vX) >= 1) {
         requestAnimationFrame(handleTransition);
       }
     }
