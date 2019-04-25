@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./book.sass";
 const Book = () => {
-  let aPage, aPageDegs = [], gap, space = 25;
+  let aPage, aPageDegs = [], gap, space = 25, readingPageIndex;
   useEffect(() => {//角度與層級初始化
     aPage = document.getElementsByClassName('page');
     gap = space / (aPage.length - 1);//最後一頁是0度、其他均分度數
@@ -25,56 +25,87 @@ const Book = () => {
       rightBeyond = aPageDegs[index + 1] || 0,
       oWrap = document.getElementsByClassName('book-page-wrapper')[0],
       touchBeyond,
-      isTouchBeyond = () => {//判斷是否摸到隔壁的紙
+      thatDegRedress,
+      isTouchBeyond = () => {//判斷是否摸到隔壁的紙，摸到的話就禁止繼續移動
         //-175  -170  -165
         //gap=5  thatdeg=-170
         //-170-5=-175   -170+5=-165
-        
         if ((thatdeg - gap) < leftBeyond) {
-          thatdeg = parseInt(leftBeyond + gap);
-          that.style.transform = `rotateY(${thatdeg}deg`;
-          aPageDegs[index] = thatdeg;
+          thatDegRedress = () => {
+            thatdeg = parseInt(leftBeyond + gap);
+            that.style.transform = `rotateY(${thatdeg}deg`;
+            aPageDegs[index] = thatdeg;
+          }
           touchBeyond = true;
           return;
         }
         if ((thatdeg + gap) > rightBeyond) {
-          thatdeg = parseInt(rightBeyond - gap);
-          that.style.transform = `rotateY(${thatdeg}deg`;
-          aPageDegs[index] = thatdeg;
+          thatDegRedress = () => {
+            thatdeg = parseInt(rightBeyond - gap);
+            that.style.transform = `rotateY(${thatdeg}deg`;
+            aPageDegs[index] = thatdeg;
+          }
           touchBeyond = true;
           return;
         }
         touchBeyond = false;
       },
+      indexChange = readingPageIndex => {
+        //一般看書的時候有兩頁都是最高層級，1 2 3 4 5 5 4 3 2 1(單位:zIndex)
+        //除非正在看第一頁或最後一頁 5 4 3 2 1與 1 2 3 4 5(單位:zIndex)
+        for (let i = 0; aPage[readingPageIndex - i]; i++) {//左頁以左，層級遞減
+          aPage[readingPageIndex - i].style.zIndex = aPage.length - i;
+        }
+        if (readingPageIndex !== 0) {//如果看的不是第一頁
+          readingPageIndex += 1;//最高層級從左頁設定到右頁
+        }
+        for (let i = 0; aPage[readingPageIndex + i]; i++) {//右頁以右，層級遞減
+          aPage[readingPageIndex + i].style.zIndex = aPage.length - i;
+        }
+      },
       handleZ_Index = () => {
-        // for (let i = 0; i < aPageDegs.length; i++) {
-        //   console.log(aPageDegs[i]);
-        // }
-        // aPageDegs.reduce((vDeg, item, index) => { console.log(vDeg, item, index) });
+        let vMaxDegIndex, vMaxDeg = 0, vDeg = 0;
+        for (let i = 0; i < aPageDegs.length - 1; i++) {
+          vDeg = Math.abs(aPageDegs[i] - aPageDegs[i + 1]);
+          if (vMaxDeg < vDeg) {
+            vMaxDegIndex = i;
+            vMaxDeg = vDeg;
+          }
+        }
+        if (readingPageIndex !== vMaxDegIndex) {
+          console.log('你正在讀的頁數改變了');
+          readingPageIndex = vMaxDegIndex;
+          indexChange(readingPageIndex);
+        }
       },
       handleTransition = () => {
-        if (touchBeyond !== true && Math.abs(vX) >= 1) {
+        isTouchBeyond();
+        if (touchBeyond === false && Math.abs(vX) >= 1) {
           thatdeg = parseInt(thatdeg - (vX * 0.5));
           that.style.transform = `rotateY(${thatdeg}deg`;
-          Math.abs(Math.abs(thatdeg) - 90) < 20 ? vX*=1.05 : vX *= 0.95;//兩個abs是解決90度左右很難翻頁的問題，然後*=是做受力運動
+          Math.abs(Math.abs(thatdeg) - 90) < 20 ? vX *= 1.05 : vX *= 0.95;//兩個abs是解決90度左右很難翻頁的問題，然後*=是做受力運動
           aPageDegs[index] = thatdeg;
           handleZ_Index();
           requestAnimationFrame(handleTransition);
         }
-        isTouchBeyond();
+        if (touchBeyond === true) {
+          thatDegRedress();
+        }
       }
     oWrap.onmousemove = e => {
-      if (touchBeyond !== true) {
-        vX = (sX - e.clientX) / 2;
+      isTouchBeyond();
+      if (touchBeyond === false) {
+        vX = (sX - e.clientX) / 3;
         thatdeg = parseInt(that.style.transform.match(/-?\d+/)[0] - vX);
         that.style.transform = `rotateY(${thatdeg}deg`;
         aPageDegs[index] = thatdeg;
         sX = e.clientX;
         handleZ_Index();
-      } else {
-        vX = 0;
       }
-      isTouchBeyond();
+      if (touchBeyond === true) {
+        vX = 0;
+        thatDegRedress();
+      }
     }
     oWrap.onmouseup = () => {
       oWrap.onmousemove = null;
