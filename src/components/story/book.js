@@ -51,14 +51,25 @@ const Book = () => {
         touchBeyond = false;
       },
       indexChange = readingPageIndex => {
-        //一般看書的時候有兩頁都是最高層級，1 2 3 4 5 5 4 3 2 1(單位:zIndex)
-        //除非正在看第一頁或最後一頁 5 4 3 2 1與 1 2 3 4 5(單位:zIndex)
+        //一般看書的時候有兩頁都是最高層級(1 2 3 3 2 1)(單位:zIndex)
+        //除非正在看第一頁(6 5 4 3 2 1)或最後一頁(1 2 3 4 5 6)(單位:zIndex)
+        if (readingPageIndex === 0) {//正在看第一頁
+          for (let i = 0; aPage[readingPageIndex + i]; i++) {//右頁以右，層級遞減
+            aPage[readingPageIndex + i].style.zIndex = aPage.length - i;
+          }
+          return;
+        }
+        if (readingPageIndex >= aPage.length - 2) {//正在看最後一頁
+          for (let i = 1; aPage[aPage.length - i]; i++) {//左頁以左，層級遞減
+            aPage[aPage.length - i].style.zIndex = aPage.length - i;
+          }
+          return;
+        }
+        //正在書的中間(有兩個最高層級，左頁和右頁)
         for (let i = 0; aPage[readingPageIndex - i]; i++) {//左頁以左，層級遞減
           aPage[readingPageIndex - i].style.zIndex = aPage.length - i;
         }
-        if (readingPageIndex !== 0) {//如果看的不是第一頁
-          readingPageIndex += 1;//最高層級從左頁設定到右頁
-        }
+        readingPageIndex += 1;//最高層級從左頁設定到右頁
         for (let i = 0; aPage[readingPageIndex + i]; i++) {//右頁以右，層級遞減
           aPage[readingPageIndex + i].style.zIndex = aPage.length - i;
         }
@@ -72,8 +83,13 @@ const Book = () => {
             vMaxDeg = vDeg;
           }
         }
+        if (Math.abs(aPageDegs[0]) < 90) {
+          vMaxDegIndex = 0;
+        }
+        if (Math.abs(aPageDegs[aPageDegs.length - 1]) > 90) {
+          vMaxDegIndex = aPage.length - 2;
+        }
         if (readingPageIndex !== vMaxDegIndex) {
-          console.log('你正在讀的頁數改變了');
           readingPageIndex = vMaxDegIndex;
           indexChange(readingPageIndex);
         }
@@ -81,9 +97,9 @@ const Book = () => {
       handleTransition = () => {
         isTouchBeyond();
         if (touchBeyond === false && Math.abs(vX) >= 1) {
+          Math.abs(Math.abs(thatdeg) - 90) < 20 ? vX *= 1.05 : vX *= 0.95;//兩個abs是解決90度左右很難翻頁的問題，然後*=是做受力運動
           thatdeg = parseInt(thatdeg - (vX * 0.5));
           that.style.transform = `rotateY(${thatdeg}deg`;
-          Math.abs(Math.abs(thatdeg) - 90) < 20 ? vX *= 1.05 : vX *= 0.95;//兩個abs是解決90度左右很難翻頁的問題，然後*=是做受力運動
           aPageDegs[index] = thatdeg;
           handleZ_Index();
           requestAnimationFrame(handleTransition);
