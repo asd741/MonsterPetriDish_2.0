@@ -5,6 +5,7 @@ import Page2 from './page2';
 import Page3 from './page3';
 import LastPage from './lastpage';
 import "./book.sass";
+// import { Toast } from "antd-mobile";
 const Book = () => {
   let oWrap, aPage, aPageDegs = [], gap, space = 25, readingPageIndex;
 
@@ -14,7 +15,7 @@ const Book = () => {
     gap = space / (aPage.length - 1);//最後一頁是0度、其他均分度數
     //length=5  index=01234  gap*4  gap*3 gap*2 gap*1 gap*0
     [].forEach.call(aPage, (item, index) => {
-      item.style.zIndex = aPage.length - index;
+      // item.style.zIndex = aPage.length - index;
       const d = -(aPage.length - 1 - index) * gap;
       aPageDegs[index] = d;
       item.style.transform = `rotateY(${d}deg)`;
@@ -26,6 +27,7 @@ const Book = () => {
   })
   let handleTurnPage = (e, domObj) => {
     let that = domObj,
+      thatFront=that.getElementsByClassName('front')[0],
       index = [].indexOf.call(aPage, that),
       sX = e.clientX,
       vX,
@@ -83,19 +85,34 @@ const Book = () => {
         }
       },
       handleZ_Index = () => {
-        let vMaxDegIndex, vMaxDeg = 0, vDeg = 0;
-        for (let i = 0; i < aPageDegs.length - 1; i++) {
-          vDeg = Math.abs(aPageDegs[i] - aPageDegs[i + 1]);
-          if (vMaxDeg < vDeg) {
-            vMaxDegIndex = i;
-            vMaxDeg = vDeg;
-          }
-        }
-        if (Math.abs(aPageDegs[0]) < 90) {
-          vMaxDegIndex = 0;
-        }
-        if (Math.abs(aPageDegs[aPageDegs.length - 1]) > 90) {
+        // let vMaxDegIndex, vMaxDeg = 0, vDeg = 0;
+        // for (let i = 0; i < aPageDegs.length - 1; i++) {
+        //   vDeg = Math.abs(aPageDegs[i] - aPageDegs[i + 1]);
+        //   if (vMaxDeg < vDeg) {
+        //     vMaxDegIndex = i;
+        //     vMaxDeg = vDeg;
+        //   }
+        // }
+        // if (Math.abs(aPageDegs[0]) < 90) {
+        //   vMaxDegIndex = 0;
+        // }
+        // if (Math.abs(aPageDegs[aPageDegs.length - 1]) > 90) {
+        //   vMaxDegIndex = aPage.length - 2;
+        // }
+        let vMaxDegIndex, vMaxDeg = 0,vDegs=[];
+        if (Math.abs(aPageDegs[aPageDegs.length - 1]) > 90) {//如果看的是第一頁
           vMaxDegIndex = aPage.length - 2;
+        }else if(Math.abs(aPageDegs[0]) < 90){//如果看的是最後一頁
+          vMaxDegIndex = 0;
+        }else{//看的是中間的頁數
+          for (let i = 0,vDeg; i < aPageDegs.length - 1; i++) {
+            vDeg = Math.abs(aPageDegs[i] - aPageDegs[i + 1]);
+            vDegs.push(vDeg);
+            if (vMaxDeg < vDeg) {
+              vMaxDegIndex = i;
+              vMaxDeg = vDeg;
+            }
+          }
         }
         if (readingPageIndex !== vMaxDegIndex) {
           readingPageIndex = vMaxDegIndex;
@@ -103,38 +120,40 @@ const Book = () => {
         }
       },
       handleTransition = () => {
-        isTouchBeyond();
         if (touchBeyond === false && Math.abs(vX) >= 1) {
           Math.abs(Math.abs(thatdeg) - 90) < 20 ? vX *= 1.05 : vX *= 0.95;//兩個abs是解決90度左右很難翻頁的問題，然後*=是做受力運動
           thatdeg = parseInt(thatdeg - (vX * 0.5));
           that.style.transform = `rotateY(${thatdeg}deg`;
           aPageDegs[index] = thatdeg;
-          handleZ_Index();
+          Math.abs(thatdeg)>90?thatFront.style.opacity=0:thatFront.style.opacity=1;
           requestAnimationFrame(handleTransition);
         }
         if (touchBeyond === true) {
-          console.log('角度矯正',thatDegRedress);
           thatDegRedress();
         }
+        isTouchBeyond();
+        handleZ_Index();
       }
     oWrap.onmousemove = e => {
-      isTouchBeyond();
       if (touchBeyond === false) {
         vX = (sX - e.clientX) / 3;
         thatdeg = parseInt(that.style.transform.match(/-?\d+/)[0] - vX);
         that.style.transform = `rotateY(${thatdeg}deg`;
+        Math.abs(thatdeg)>90?thatFront.style.opacity=0:thatFront.style.opacity=1;
         aPageDegs[index] = thatdeg;
         sX = e.clientX;
-        handleZ_Index();
       }
       if (touchBeyond === true) {
         vX = 0;
-        console.log('角度矯正',thatDegRedress);
-        
         thatDegRedress();
       }
+      isTouchBeyond();
+      handleZ_Index();
     }
     oWrap.onmouseup = () => {
+      if (80 < Math.abs(thatdeg) < 100 && Math.abs(vX) <= 1) {
+        vX += 2;
+      }
       oWrap.onmousemove = null;
       if (Math.abs(vX) >= 1) {
         requestAnimationFrame(handleTransition);
@@ -145,8 +164,8 @@ const Book = () => {
   return (
     <div className='book-page-wrapper'>
       <div className='book'>
-        <Cover />
-        <Page1 />
+        <Cover deg={aPageDegs[0]}/>
+        <Page1 deg={aPageDegs[1]}/>
         <Page2 />
         <Page3 />
         <LastPage />

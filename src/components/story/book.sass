@@ -8,7 +8,8 @@ $page-color: #fffbec
     position: absolute
     top: 50%
     left: 50%
-    perspective: 1000px
+    transform-style: preserve-3d
+    perspective: 2000px
     transform: translate(0%, -50%)
     max-width: 50.33vh
     max-height: 70vh
@@ -24,6 +25,7 @@ $page-color: #fffbec
         max-height: inherit
         width: inherit
         height: inherit
+        transform-style: preserve-3d
         transform-origin: left center
         background-color: #ffdab9
         box-shadow: 0px 0px 1px 1px gray
@@ -34,8 +36,13 @@ $page-color: #fffbec
             width: 100%
             height: 100%
             background-color: inherit
+            transition: opacity .3s
+            opacity: 1
+            transition-delay: .1s
+        & .front
+            z-index: 1
         & .back
-            transform: rotateY(180deg)
+            transform: scaleX(-1)
     & .cover,& .last-page
         background: #303030
         // transform: rotateY(-25deg)

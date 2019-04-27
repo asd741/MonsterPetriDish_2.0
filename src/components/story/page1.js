@@ -8,7 +8,7 @@ const Page1 = props => {
                 <img className='startImg' src={require('../../images/p1.png')}></img>
             </div>
             <div className='back'>
-            <h3 className='title'>遊戲主畫面</h3>
+                <h3 className='title'>遊戲主畫面</h3>
                 <img className='startImg' src={require('../../images/p2.png')}></img>
             </div>
         </div>
