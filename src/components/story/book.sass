@@ -14,6 +14,7 @@ $page-color: #fffbec
     max-height: 70vh
     width: 40vw
     height: 57.6vw
+    letter-spacing: 3px
     &:hover
         cursor: grab
     & .page
@@ -25,24 +26,41 @@ $page-color: #fffbec
         height: inherit
         transform-origin: left center
         background-color: #ffdab9
-        box-shadow: -1px -1px 1px 0px grey inset
-        transition: transform .3s
+        box-shadow: 0px 0px 1px 1px gray
         transform: rotateY(0deg)
-    & .cover
-        z-index: 99
+        transition: transform .3s
+        & .front,& .back
+            position: absolute
+            width: 100%
+            height: 100%
+            background-color: inherit
+        & .back
+            transform: rotateY(180deg)
+    & .cover,& .last-page
         background: #303030
         // transform: rotateY(-25deg)
         & .title
             margin: 0
             padding: 0.83em 0
             text-align: center
-            font-size: 30px
+            font-size: 6vmin
             color: white
+        & .coverImg
+            display: block
+            width: 50%
+            margin: auto
+    & .page1,& .page2,& .page3
+        text-align: center
+        & .title
+            color: grey
+            font-size: 4vmin
+        & .startImg
+            height: 75%
     & .mid-page
-        z-index: 1
+        // z-index: 1
         background-color: $page-color
     & .last-page
-        z-index: 0
+        // z-index: 0
         background-color: white
         // transform: rotateY(0deg)
 

@@ -1,8 +1,15 @@
 import React, { useEffect, useState } from "react";
+import Cover from './cover';
+import Page1 from './page1';
+import Page2 from './page2';
+import Page3 from './page3';
+import LastPage from './lastpage';
 import "./book.sass";
 const Book = () => {
-  let aPage, aPageDegs = [], gap, space = 25, readingPageIndex;
+  let oWrap, aPage, aPageDegs = [], gap, space = 25, readingPageIndex;
+
   useEffect(() => {//角度與層級初始化
+    oWrap = document.getElementsByClassName('book-page-wrapper')[0];
     aPage = document.getElementsByClassName('page');
     gap = space / (aPage.length - 1);//最後一頁是0度、其他均分度數
     //length=5  index=01234  gap*4  gap*3 gap*2 gap*1 gap*0
@@ -11,19 +18,20 @@ const Book = () => {
       const d = -(aPage.length - 1 - index) * gap;
       aPageDegs[index] = d;
       item.style.transform = `rotateY(${d}deg)`;
+      item.onmousedown = e => handleTurnPage(e, item);
     })
+    oWrap.ondragstart = () => { return false };
     window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
       window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
   })
-  let handleTurnPage = e => {
-    let that = e.target,
+  let handleTurnPage = (e, domObj) => {
+    let that = domObj,
       index = [].indexOf.call(aPage, that),
       sX = e.clientX,
       vX,
       thatdeg = aPageDegs[index],
       leftBeyond = aPageDegs[index - 1] || -180,
       rightBeyond = aPageDegs[index + 1] || 0,
-      oWrap = document.getElementsByClassName('book-page-wrapper')[0],
       touchBeyond,
       thatDegRedress,
       isTouchBeyond = () => {//判斷是否摸到隔壁的紙，摸到的話就禁止繼續移動
@@ -32,7 +40,7 @@ const Book = () => {
         //-170-5=-175   -170+5=-165
         if ((thatdeg - gap) < leftBeyond) {
           thatDegRedress = () => {
-            thatdeg = parseInt(leftBeyond + gap);
+            thatdeg = leftBeyond + gap;
             that.style.transform = `rotateY(${thatdeg}deg`;
             aPageDegs[index] = thatdeg;
           }
@@ -41,7 +49,7 @@ const Book = () => {
         }
         if ((thatdeg + gap) > rightBeyond) {
           thatDegRedress = () => {
-            thatdeg = parseInt(rightBeyond - gap);
+            thatdeg = rightBeyond - gap;
             that.style.transform = `rotateY(${thatdeg}deg`;
             aPageDegs[index] = thatdeg;
           }
@@ -105,6 +113,7 @@ const Book = () => {
           requestAnimationFrame(handleTransition);
         }
         if (touchBeyond === true) {
+          console.log('角度矯正',thatDegRedress);
           thatDegRedress();
         }
       }
@@ -120,6 +129,8 @@ const Book = () => {
       }
       if (touchBeyond === true) {
         vX = 0;
+        console.log('角度矯正',thatDegRedress);
+        
         thatDegRedress();
       }
     }
@@ -132,30 +143,13 @@ const Book = () => {
   }
 
   return (
-    <div className='book-page-wrapper' onMouseDown={e => {
-      if (e.target.classList.contains('page') === true) {
-        handleTurnPage(e);
-      }
-    }}>
-      <div className="book">
-        <div className="cover page">
-          <h2 className="title">遊戲手冊</h2>
-        </div>
-        <div className="mid-page page">
-          <h2 className="title">中間頁面</h2>
-        </div>
-        <div className="mid-page page">
-          <h2 className="title">中間頁面</h2>
-        </div>
-        <div className="mid-page page">
-          <h2 className="title">中間頁面</h2>
-        </div>
-        <div className="mid-page page">
-          <h2 className="title">中間頁面</h2>
-        </div>
-        <div className="last-page page">
-          <h2 className="title">最後一頁</h2>
-        </div>
+    <div className='book-page-wrapper'>
+      <div className='book'>
+        <Cover />
+        <Page1 />
+        <Page2 />
+        <Page3 />
+        <LastPage />
       </div>
     </div>
   );
