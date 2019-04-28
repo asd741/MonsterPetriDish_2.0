@@ -1,8 +1,15 @@
 $yellow: #ffdab9
 $pink: #db7093
 $blue: #53a4c5
-body
+body,h2,ul,li,p
     margin: 0
+ul
+    list-style: none
+a
+    text-decoration: none
+    color: unset
+button
+    outline: 0
 .bg
     min-height: 100vh
     background: linear-gradient(to bottom, #cbebdb, #53a4c5)
@@ -14,11 +21,13 @@ body
     position: fixed
     bottom: 0
     display: flex
+    margin: 45px 0 0 0
     height: 45px
     width: 100%
     text-align: center
     font-size: 23px
     line-height: 45px
+    background-color: #666
     & a
         border-radius: 5px
         padding: 0 20px
@@ -30,3 +39,7 @@ body
             cursor: pointer
             background: $yellow
             color: $pink
+@media screen and(max-width: 430px)
+    .navbar
+        font-size: 17px
+
