@@ -3,6 +3,7 @@ import Cover from './cover';
 import Page1 from './page1';
 import Page2 from './page2';
 import Page3 from './page3';
+import Page4 from './page4';
 import LastPage from './lastpage';
 import "./book.sass";
 // import { Toast } from "antd-mobile";
@@ -168,6 +169,7 @@ const Book = () => {
         <Page1 deg={aPageDegs[1]}/>
         <Page2 />
         <Page3 />
+        <Page4 />
         <LastPage />
       </div>
     </div>
