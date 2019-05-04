@@ -225,7 +225,7 @@ export default class Pc extends Component {
                 );
             }
           },
-          2000,
+          500,
           sequence.length
         );
       }
@@ -758,7 +758,6 @@ export default class Pc extends Component {
   
   componentWillUnmount() {
     window.S=null;
-    console.log("pc hidden");
   }
   render() {
     return (
@@ -768,7 +767,7 @@ export default class Pc extends Component {
           <script src="/follow.js" type="text/javascript"></script>
         </div> --> */}
         <canvas className="canvas" />
-
+        <img id='logo' src={require('../../images/logo.png')}></img>
         <div className="help">?</div>
 
         <div className="ui">

@@ -2,10 +2,11 @@ import React, { Component } from "react";
 import Mobi from "./banner.mobi";
 import Pc from "./banner.pc";
 import "./banner.css";
+import QueueAnim from "rc-queue-anim";
 export default class Banner extends Component {
   constructor(props) {
     super(props);
-    if (typeof window!=='undefined') {
+    if (typeof window !== 'undefined') {
       this.state = {
         page: window.innerWidth > 1140 ? "pc" : "mobi"
       };
@@ -19,7 +20,16 @@ export default class Banner extends Component {
       };
     }
   }
+
   render() {
-    return <div id='banner-page'>{this.state&&this.state.page === "pc" ? <Pc /> : <Mobi />}</div>;
+    return (
+      <div id='banner-page'>
+        <QueueAnim animConfig={{ opacity: [1, 0] }}>
+          {this.state && this.state.page === "pc" ?
+            <div className='page-wrapper' key={'bannerPc'} ><Pc /></div> :
+            <div className='page-wrapper' key={'bannerMobi'}><Mobi /></div>}
+        </QueueAnim>
+      </div >
+    )
   }
 }
