@@ -7,13 +7,11 @@
   /* background: linear-gradient(to bottom, #cbebdb, #53a4c5); */
 }
 #mobi-page-h1 {
-  display: none;
   position: absolute;
   top: 50%;
   margin: 0;
   width: 100%;
   text-align: center;
-  transition: transform .3s;
   transform: translate(0,-50%) scale(0);
   font-weight: 900;
   color: white;
@@ -38,7 +36,7 @@
   left: 50%;
   width: 25vmax;
   transform: translate(-50%,0%);
-  /* transition: transform .3s; */
+  transition: transform .3s;
   /* animation: showLogo .5s 1 linear; */
 }
 @media screen and (max-width:1140px) and (min-width:600px){
@@ -55,11 +53,11 @@
 }
 @media screen and (max-width:600px){
   #mobi-page-h1 {
-    display: block;
     position: absolute;
     top: 12%;
     left: 50%;
     width: auto;
+    transition: transform .3s;
     transform: translate(-50%) scale(1);
     writing-mode: vertical-lr;
     font-weight: 900;

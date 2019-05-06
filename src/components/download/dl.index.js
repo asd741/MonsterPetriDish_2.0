@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import './dl.index.sass'
-export default class Index extends Component {
-  render() {
+import React, { Component } from 'react';
+import './dl.index.sass';
+// import Monster from '../story/monster';
+const Index=()=>{
     return (
       <div id='dl-page'>
         <h2 className='title'>遊戲下載</h2>
@@ -20,8 +20,8 @@ export default class Index extends Component {
             </ul>
           </section>
         </section>
-
+        {/* <Monster/> */}
       </div>
     )
-  }
 }
+export default Index
