@@ -24,12 +24,12 @@ const Layout = ({ children }) => (
     render={data => {
       return (
         // <Provider>
-          <>
+          <div className='bg'>
             <Helmet>
               <meta charSet="utf-8" />
               <title>魔物培養皿官網</title>
             </Helmet>
-            <QueueAnim type="scale" className='bg'>
+            <QueueAnim type="scale">
               <div
                 className="page-wrapper"
                 key={typeof window != "undefined" && window.location.href}
@@ -51,7 +51,7 @@ const Layout = ({ children }) => (
                 下載
               </Link>
             </nav>
-          </>
+          </div>
         // </Provider>
       );
     }}
