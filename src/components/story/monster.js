@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from "gatsby";
-// import './monster.css';
 import * as THREE from 'three';
 import Orbitcontrols from 'three-orbitcontrols';
 import {connect} from 'react-redux'
 
 export default class Monster extends Component {
   componentDidMount() {
+    window.monster=true;
     let renderer, scene, camera;
     let cameraControl, stats, monster;
     // function initStats() {
@@ -232,7 +232,6 @@ export default class Monster extends Component {
         return;
       }
       animate();
-      
       requestAnimationFrame(render);
       cameraControl.update();
       renderer.render(scene, camera);
@@ -245,7 +244,6 @@ export default class Monster extends Component {
     }
     init();
     render();
-    window.monster=true;
   }
   
   componentWillUnmount(){

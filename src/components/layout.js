@@ -50,6 +50,9 @@ const Layout = ({ children }) => (
               <Link to="/download" className="download-link">
                 下載
               </Link>
+              <Link to="/other" className="other-link">
+                其他
+              </Link>
             </nav>
           </div>
         // </Provider>

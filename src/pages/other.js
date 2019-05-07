@@ -1,11 +1,12 @@
 import React, { Component } from "react";
+import Monster from '../components/story/monster';
 import Layout from "../components/layout";
-import Index from '../components/download/dl.index'
-const download=()=>{
+
+const Other=()=>{
     return (
       <Layout>
-        <Index/>
+        <Monster/>
       </Layout>
     );
-  }
-export default download
+}
+export default Other;
