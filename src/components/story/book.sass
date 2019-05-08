@@ -20,7 +20,6 @@ $page-color: #fffbec
         cursor: grab
     & .page
         position: absolute
-        overflow: hidden
         max-width: inherit
         max-height: inherit
         width: inherit
@@ -36,13 +35,11 @@ $page-color: #fffbec
             width: 100%
             height: 100%
             background-color: inherit
-            // transition: opacity .3s
-            opacity: 1
             transition-delay: .15s
         & .front
-            z-index: 1
+            transform: translateZ(1px)
         & .back
-            transform: scaleX(-1)
+            transform: scaleX(-1) translateZ(-1px)
     & .cover,& .last-page
         background: #303030
         // transform: rotateY(-25deg)
@@ -70,4 +67,8 @@ $page-color: #fffbec
         // z-index: 0
         background-color: white
         // transform: rotateY(0deg)
+        & .front,& .back
+            display: flex
+            & img
+                margin: auto
 

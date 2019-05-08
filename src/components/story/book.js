@@ -9,7 +9,6 @@ import "./book.sass";
 // import { Toast } from "antd-mobile";
 const Book = () => {
   let oWrap, aPage, aPageDegs = [], gap, space = 25, readingPageIndex;
-
   useEffect(() => {//角度與層級初始化
     oWrap = document.getElementsByClassName('book-page-wrapper')[0];
     aPage = document.getElementsByClassName('page');
@@ -126,21 +125,21 @@ const Book = () => {
           thatdeg = parseInt(thatdeg - (vX * 0.5));
           that.style.transform = `rotateY(${thatdeg}deg`;
           aPageDegs[index] = thatdeg;
-          Math.abs(thatdeg)>90?thatFront.style.opacity=0:thatFront.style.opacity=1;
+          // Math.abs(thatdeg)>90?thatFront.style.opacity=0:thatFront.style.opacity=1;
           requestAnimationFrame(handleTransition);
         }
         if (touchBeyond === true) {
           thatDegRedress();
         }
         isTouchBeyond();
-        handleZ_Index();
+        // handleZ_Index();
       }
     oWrap.onmousemove = e => {
       if (touchBeyond === false) {
         vX = (sX - e.clientX) / 3;
         thatdeg = parseInt(that.style.transform.match(/-?\d+/)[0] - vX);
         that.style.transform = `rotateY(${thatdeg}deg`;
-        Math.abs(thatdeg)>90?thatFront.style.opacity=0:thatFront.style.opacity=1;
+        // Math.abs(thatdeg)>90?thatFront.style.opacity=0:thatFront.style.opacity=1;
         aPageDegs[index] = thatdeg;
         sX = e.clientX;
       }
@@ -149,7 +148,7 @@ const Book = () => {
         thatDegRedress();
       }
       isTouchBeyond();
-      handleZ_Index();
+      // handleZ_Index();
     }
     oWrap.onmouseup = () => {
       if (80 < Math.abs(thatdeg) < 100 && Math.abs(vX) <= 1) {
