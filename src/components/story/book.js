@@ -54,6 +54,13 @@ const Book = () => {
         if ((thatdeg - gap) < leftBeyond) {
           thatDegRedress = () => {
             thatdeg = leftBeyond + gap;
+            if (Math.abs(Math.abs(thatdeg) - 90) < 10) {
+              setTimeout(() => {
+                thatdeg += 20;
+                that.style.transform = `rotateY(${thatdeg}deg`;
+                aPageDegs[index] = thatdeg;
+              },666)
+            }
             that.style.transform = `rotateY(${thatdeg}deg`;
             aPageDegs[index] = thatdeg;
           }
@@ -63,6 +70,13 @@ const Book = () => {
         if ((thatdeg + gap) > rightBeyond) {
           thatDegRedress = () => {
             thatdeg = rightBeyond - gap;
+            if (Math.abs(Math.abs(thatdeg) - 90) < 10) {
+              setTimeout(() => {
+                thatdeg -= 20;
+                that.style.transform = `rotateY(${thatdeg}deg`;
+                aPageDegs[index] = thatdeg;
+              },666)
+            }
             that.style.transform = `rotateY(${thatdeg}deg`;
             aPageDegs[index] = thatdeg;
           }
@@ -131,6 +145,8 @@ const Book = () => {
       //   }
       // },
       handleTransition = () => {
+        // console.log(vX);
+
         isTouchBeyond();
         if (touchBeyond === false && Math.abs(vX) >= 1) {
           Math.abs(Math.abs(thatdeg) - 90) < 20 ? vX *= 1.05 : vX *= 0.95;//兩個abs是解決90度左右很難翻頁的問題，然後*=是做受力運動
@@ -148,7 +164,7 @@ const Book = () => {
       oWrap.ontouchmove = e => {
         isTouchBeyond();
         if (touchBeyond === false) {
-          vX = (sX - e.touches[0].clientX) / 2.5;
+          vX = (sX - e.touches[0].clientX);
           thatdeg = parseInt(that.style.transform.match(/-?\d+/)[0] - vX);
           that.style.transform = `rotateY(${thatdeg}deg`;
           aPageDegs[index] = thatdeg;
