@@ -31,20 +31,21 @@ const Book = () => {
       sX = e.clientX,
       vX = 0,
       thatdeg = aPageDegs[index],
-      leftBeyond = aPageDegs[index - 1] || -180,
-      rightBeyond = aPageDegs[index + 1] || 0,
+
       touchBeyond,
       thatDegRedress,
       isTouchBeyond = () => {//判斷是否摸到隔壁的紙，摸到的話就禁止繼續移動
         //-175  -170  -165
         //gap=5  thatdeg=-170
         //-170-5=-175   -170+5=-165
+        let leftBeyond = aPageDegs[index - 1] || -180,
+          rightBeyond = aPageDegs[index + 1] || 0;
         if ((thatdeg - gap) < leftBeyond) {
           thatDegRedress = () => {
             thatdeg = leftBeyond + gap;
             that.style.transform = `rotateY(${thatdeg}deg`;
             aPageDegs[index] = thatdeg;
-            oWrap.onmousemove = null;
+            // oWrap.onmousemove = null;
           }
           touchBeyond = true;
           return;
@@ -54,7 +55,7 @@ const Book = () => {
             thatdeg = rightBeyond - gap;
             that.style.transform = `rotateY(${thatdeg}deg`;
             aPageDegs[index] = thatdeg;
-            oWrap.onmousemove = null;
+            // oWrap.onmousemove = null;
           }
           touchBeyond = true;
           return;
@@ -122,7 +123,6 @@ const Book = () => {
       },
       handleTransition = () => {
         isTouchBeyond();
-        console.log(aPageDegs);
         if (touchBeyond === false && Math.abs(vX) >= 1) {
           Math.abs(Math.abs(thatdeg) - 90) < 20 ? vX *= 1.05 : vX *= 0.95;//兩個abs是解決90度左右很難翻頁的問題，然後*=是做受力運動
           thatdeg = parseInt(thatdeg - (vX * 0.5));
@@ -138,7 +138,7 @@ const Book = () => {
     oWrap.onmousemove = e => {
       isTouchBeyond();
       if (touchBeyond === false) {
-        vX = (sX - e.clientX) / 3;
+        vX = (sX - e.clientX) / 2.5;
         thatdeg = parseInt(that.style.transform.match(/-?\d+/)[0] - vX);
         that.style.transform = `rotateY(${thatdeg}deg`;
         aPageDegs[index] = thatdeg;
@@ -154,7 +154,7 @@ const Book = () => {
     oWrap.onmouseup = () => {
       oWrap.onmousemove = null;
       if (80 < Math.abs(thatdeg) < 100 && Math.abs(vX) <= 1) {
-        vX += 2;
+        vX += 3;
       }
       if (Math.abs(vX) >= 1) {
         requestAnimationFrame(handleTransition);
