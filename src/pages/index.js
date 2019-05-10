@@ -1,13 +1,20 @@
-import React, { Component } from "react";
-import Banner from "../components/banner/banner.index";
-import Layout from "../components/layout";
+import React, { Component } from "react"
+import { Link } from "gatsby"
+import Layout from "../components/layout"
+import Banner from '../components/banner'
 
 export default class IndexPage extends Component {
+  constructor(props) {
+    super(props);
+  }
   render() {
     return (
-      <Layout>
-        <Banner/>
-      </Layout>
+      <>
+        <Layout>
+          <Banner/>
+        </Layout>
+      </>
     );
   }
 }
+

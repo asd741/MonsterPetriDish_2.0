@@ -3,8 +3,6 @@ import { Link } from "gatsby";
 import './monster.css';
 import * as THREE from 'three';
 import Orbitcontrols from 'three-orbitcontrols';
-import {connect} from 'react-redux'
-
 export default class Monster extends Component {
   componentDidMount() {
     let renderer, scene, camera;
@@ -229,34 +227,31 @@ export default class Monster extends Component {
     }
     function render() {
       // stats.update();
-      if(!window.monster){
-        return;
-      }
       animate();
-      
       requestAnimationFrame(render);
       // cameraControl.update();
       renderer.render(scene, camera);
     }
 
-    window.onresize=()=>{
+    window.addEventListener("resize", function () {
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
       renderer.setSize(window.innerWidth, window.innerHeight);
-    }
+    });
     init();
     render();
-    window.monster=true;
   }
-  
   componentWillUnmount(){
-    window.monster=false;
     window.onresize=null;
+    for( var i=0;i<100;i++ ){
+      clearInterval(i);
+    }
   }
   render() {
     return (
       <div style={{ "position": "relative" }}>
         <div id="stats" />
+        <Link to='/' className='link'>回到首頁</Link>
         <div id='monster'/>
       </div>
     );
