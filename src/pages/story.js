@@ -1,12 +1,10 @@
 import React from "react"
-import { Link } from "gatsby"
 import Layout from "../components/layout"
-import Monster from '../components/story/monster'
-
+import Book from '../components/story/book'
 const Story = () => (
-  <Layout>
-    <Monster/>
-  </Layout>
+    <Layout>
+        <Book/>
+    </Layout>
 )
 
 export default Story

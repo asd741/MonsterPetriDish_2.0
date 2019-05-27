@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from "gatsby";
-import './monster.css';
 import * as THREE from 'three';
 import Orbitcontrols from 'three-orbitcontrols';
+import {connect} from 'react-redux'
+
 export default class Monster extends Component {
   componentDidMount() {
+    window.monster=true;
     let renderer, scene, camera;
     let cameraControl, stats, monster;
     // function initStats() {
@@ -20,7 +22,6 @@ export default class Monster extends Component {
       var canvas = document.createElement("canvas");
       canvas.width = 16;
       canvas.height = 16;
-
       var context = canvas.getContext("2d");
       var gradient = context.createRadialGradient(
         canvas.width / 2,
@@ -203,8 +204,8 @@ export default class Monster extends Component {
       camera.position.set(0, 0, 400);
       camera.lookAt(scene.position);
 
-      // cameraControl = new THREE.OrbitControls(camera);
-      // cameraControl.autoRotate = true
+      cameraControl = new THREE.OrbitControls(camera);
+      cameraControl.autoRotate = true
       // stats = initStats();
 
       renderer = new THREE.WebGLRenderer();
@@ -227,31 +228,32 @@ export default class Monster extends Component {
     }
     function render() {
       // stats.update();
+      if(!window.monster){
+        return;
+      }
       animate();
       requestAnimationFrame(render);
-      // cameraControl.update();
+      cameraControl.update();
       renderer.render(scene, camera);
     }
 
-    window.addEventListener("resize", function () {
+    window.onresize=()=>{
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
       renderer.setSize(window.innerWidth, window.innerHeight);
-    });
+    }
     init();
     render();
   }
+  
   componentWillUnmount(){
+    window.monster=false;
     window.onresize=null;
-    for( var i=0;i<100;i++ ){
-      clearInterval(i);
-    }
   }
   render() {
     return (
       <div style={{ "position": "relative" }}>
         <div id="stats" />
-        <Link to='/' className='link'>回到首頁</Link>
         <div id='monster'/>
       </div>
     );

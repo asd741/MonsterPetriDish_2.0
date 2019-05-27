@@ -1,0 +1,49 @@
+$yellow: #ffdab9
+$pink: #db7093
+$blue: #53a4c5
+body,h2,h3,ul,li,p
+    padding: 0
+    margin: 0
+ul
+    list-style: none
+a
+    text-decoration: none
+    color: unset
+button
+    outline: 0
+.bg
+    min-height: 100vh
+    background: linear-gradient(to bottom, #cbebdb, #53a4c5)
+.page-wrapper
+    padding: 0 0 45px 0
+    -moz-user-select: none
+    -webkit-user-select: none
+.navbar
+    position: fixed
+    bottom: 0
+    display: flex
+    height: 45px
+    width: 100%
+    text-align: center
+    font-size: 23px
+    font-family: cursive
+    font-weight: bolder
+    line-height: 45px
+    background-color: #666
+    & a
+        border-radius: 5px
+        padding: 0 20px
+        flex: 1
+        color: white
+        text-decoration: none
+        transition: .3s
+        &:hover
+            cursor: pointer
+            background: $yellow
+            color: $pink
+@media screen and(max-width: 430px)
+    .navbar
+        font-size: 17px
+        & a
+            padding: 0 12px
+

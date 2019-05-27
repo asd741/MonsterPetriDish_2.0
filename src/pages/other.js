@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import Banner from "../components/banner/banner.index";
+import Monster from '../components/story/monster';
 import Layout from "../components/layout";
 
-const IndexPage=()=>{
+const Other=()=>{
     return (
       <Layout>
-        <Banner/>
+        <Monster/>
       </Layout>
     );
 }
-export default IndexPage;
+export default Other;

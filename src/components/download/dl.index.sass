@@ -1,0 +1,55 @@
+#dl-page
+    padding: 0 30px
+    color: #666
+    line-height: 1.5
+    & .title,& .info
+        width: 100%
+        text-align: center
+        font-weight: bold
+    & .title
+        font-size: 55px
+        padding: 30px 0
+    & .info
+        font-size: 15px
+        margin: 0 0 30px 0
+    & .main
+        display: flex
+        justify-content: center
+        align-items: flex-start
+        & .dl-part
+            display: flex
+            flex-direction: column
+            align-items: center
+            & .dl-btn
+                border: 0
+                border-radius: 15px
+                margin: 20px 0
+                padding: 10px 35px
+                width: 50%
+                text-align: center
+                background-color: #666
+                color: #fff
+                font-size: 25px
+                font-weight: bold
+                letter-spacing: 5px
+                &:hover
+                    color: #87ceeb
+                    background-color: #fff
+                    cursor: pointer
+        & .text-part
+            margin: 0 0 0 20px
+            & .list-wrapper
+                display: flex
+                flex-direction: column
+                justify-content: space-between
+                height: 196px
+                & .list
+                    font-size: 25px
+                    font-weight: bold
+                    color: #fff
+@media screen and(max-width:800px)
+    #dl-page .main
+        flex-direction: column
+        align-items: center
+        & .text-part
+            margin: 0

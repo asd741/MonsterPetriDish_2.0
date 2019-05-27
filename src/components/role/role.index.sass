@@ -1,0 +1,229 @@
+$banner1Size : 10vmax
+$container: 1000px
+#role-page
+    font-family: cursive
+    font-weight: bold
+    // background-image: url('../../images/r1-l.png'),url('../../images/r2-l.png'),url('../../images/r3-l.png')
+    // background-repeat: no-repeat
+    // background-size: 15vw auto
+    & .page-title
+        display: flex
+        flex-direction: column
+        align-items: center
+        margin: 0 auto 10px
+        width: 300px
+        font-weight: bolder
+        color: #333
+        font-size: 30px
+        letter-spacing: 5px
+        & .title-decoration
+            width: 70%
+            height: 70%
+    & .main
+        display: flex
+        justify-content: space-between
+        align-items: center
+        & .card-wrapper
+            box-sizing: border-box
+            padding: 5%
+            display: flex
+            margin: auto
+            border-radius: 10px
+            flex-direction: column
+            justify-content: space-around
+            align-items: center
+            width: $container
+            max-width: 90%
+            background: linear-gradient(to bottom,rgba(255,0,0,.8),rgba(0,0,255,.8))
+            & .card
+                box-shadow: 0 0 3px 2px #999
+                margin: 0 0 5% 0
+                border-radius: 10px
+                width: 100%
+                height: 420px
+                flex-direction: column
+                justify-content: space-around
+                align-items: center
+                display: flex
+                color: #fff
+                &:nth-of-type(1) 
+                    background: khaki
+                    .img-wrapper
+                        background-color: burlywood
+                &:nth-of-type(2) 
+                    background: khaki
+                    .img-wrapper
+                        background-color: mediumpurple
+                &:nth-of-type(3) 
+                    background: khaki
+                    .img-wrapper
+                        background-color: rgba(0,0,255,.75)
+                & .img-wrapper
+                    box-sizing: border-box
+                    display: flex
+                    align-items: center
+                    justify-content: space-around
+                    border: 5px solid white
+                    padding: 10px
+                    width: 70%
+                    height: 30%
+                    & img
+                        height: 195px
+                        max-height: 100%
+                        width: auto
+                        transition: transform .3s
+                        &:hover
+                            cursor: pointer
+                            transform: scale(2)
+                    & .name
+                        font-size: 35px
+                        letter-spacing: 3px
+                        transition: font .3s
+                        white-space: nowrap
+                    @media screen and(max-width: 800px)
+                        & .name
+                            font-size: 25px
+                & .text-wrapper
+                    display: flex
+                    box-sizing: border-box
+                    border-radius: 10px
+                    padding: 15px
+                    width: 80%
+                    height: 40%
+                    background-color: white
+                    & .text
+                        margin: auto
+                        font-size: 25px
+                        letter-spacing: 2px
+                        font-weight: bold
+                        color: black
+    & .bg-decoration
+        position: relative
+        margin: auto
+        max-width: 100%
+        width: $container
+        text-align: center
+        & img
+            max-width: 100%
+        & .small
+            position: absolute
+            z-index: -1
+            width: 15%
+            height: auto
+        & .big
+            animation: slideUp .5s 1 2s
+        & .leftTop
+            animation: resilienceLT 1.5s ease-out infinite
+            transform: rotate(25deg)
+            left: 10%
+            top: 5%
+        & .rightCenter
+            animation: resilienceRC 1.5s ease-out infinite
+            transform: scaleX(-1) rotateZ(-20deg)
+            left: 80%
+            top: 30%
+        & .leftBottom
+            animation: resilienceLB 1.5s ease-out infinite
+            transform: scaleX(-1)
+            left: 0%
+            top: 50%
+        & .zzz
+            position: absolute
+            display: flex
+            justify-content: space-around
+            align-items: flex-end
+            top: 20%
+            left: 60%
+            font-family: monospace
+            // color: #000
+            color: antiquewhite
+            font-size: 15vw
+            transition: .3s
+            & span:nth-of-type(1)
+                font-size: 30%
+                animation: z1 3s infinite 
+            & span:nth-of-type(2)
+                font-size: 60%
+                animation: z2 3s infinite
+            & span:nth-of-type(3)
+                font-size: 100%
+                animation: z3 3s infinite
+@media screen and (min-width: 1300px)
+    #role-page .bg-decoration .zzz
+        top: 7%
+        color: antiquewhite
+@media screen and (max-width: 1300px)
+    #role-page
+        & .main
+            flex-direction: column
+            & .list
+                width: 80vw
+@media screen and (max-width: 800px)
+     #role-page
+        & .main
+            & .list
+                flex-direction: column
+                height: unset
+                & img
+                    height: auto
+                    padding: 10px 0
+@keyframes resilienceLT
+    0%
+        transform: scale(1) rotate(25deg)
+    30%
+        transform: scale(1.05,.95) rotate(25deg)
+    85%
+        transform: scale(.95,1.05) rotate(25deg)
+    100%
+        transform: scale(1) rotate(25deg)
+@keyframes resilienceRC
+    0%
+        transform: scale(-1,1) rotateZ(-20deg)
+    30%
+        transform: scale(-1.05,.95) rotateZ(-20deg)
+    85%
+        transform: scale(-.95,1.05) rotateZ(-20deg)
+    100%
+        transform: scale(-1,1) rotateZ(-20deg)
+@keyframes resilienceLB
+    0%
+        transform: scale(-1,1)
+    30%
+        transform: scale(-1.05,.95)
+    85%
+        transform: scale(-.95,1.05)
+    100%
+        transform: scale(-1,1)
+@keyframes z1
+    0%
+        opacity: 0
+    25%
+        opacity: 1
+    50%
+        opacity: 1
+    75%
+        opacity: 1
+    100%
+        opacity: 0
+@keyframes z2
+    0%
+        opacity: 0
+    25%
+        opacity: 0
+    50%
+        opacity: 1
+    75%
+        opacity: 1
+    100%
+        opacity: 0
+@keyframes z3
+    0%
+        opacity: 0
+    25%
+        opacity: 0
+    50%
+        opacity: 0
+    75%
+        opacity: 1
+    100%
+        opacity: 0

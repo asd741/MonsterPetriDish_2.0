@@ -15,6 +15,11 @@
         "path": "/download/"
     },
     {
+        "componentChunkName": "component---src-pages-other-js",
+        "jsonName": "other-797",
+        "path": "/other/"
+    },
+    {
         "componentChunkName": "component---src-pages-role-js",
         "jsonName": "role-7d3",
         "path": "/role/"
