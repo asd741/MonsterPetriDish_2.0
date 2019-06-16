@@ -16,6 +16,7 @@ var _gatsbyLink = _interopRequireWildcard(require("gatsby-link"));
 
 exports.Link = _gatsbyLink.default;
 exports.withPrefix = _gatsbyLink.withPrefix;
+exports.withAssetPrefix = _gatsbyLink.withAssetPrefix;
 exports.navigate = _gatsbyLink.navigate;
 exports.push = _gatsbyLink.push;
 exports.replace = _gatsbyLink.replace;
@@ -30,13 +31,28 @@ const StaticQueryContext = _react.default.createContext({});
 
 exports.StaticQueryContext = StaticQueryContext;
 
-const StaticQuery = props => _react.default.createElement(StaticQueryContext.Consumer, null, staticQueryData => {
-  if (props.data || staticQueryData[props.query] && staticQueryData[props.query].data) {
-    return (props.render || props.children)(props.data ? props.data.data : staticQueryData[props.query].data);
-  } else {
-    return _react.default.createElement("div", null, "Loading (StaticQuery)");
-  }
-});
+function StaticQueryDataRenderer({
+  staticQueryData,
+  data,
+  query,
+  render
+}) {
+  const finalData = data ? data.data : staticQueryData[query] && staticQueryData[query].data;
+  return _react.default.createElement(_react.default.Fragment, null, finalData && render(finalData), !finalData && _react.default.createElement("div", null, "Loading (StaticQuery)"));
+}
+
+const StaticQuery = props => {
+  const data = props.data,
+        query = props.query,
+        render = props.render,
+        children = props.children;
+  return _react.default.createElement(StaticQueryContext.Consumer, null, staticQueryData => _react.default.createElement(StaticQueryDataRenderer, {
+    data: data,
+    query: query,
+    render: render || children,
+    staticQueryData: staticQueryData
+  }));
+};
 
 exports.StaticQuery = StaticQuery;
 
@@ -63,5 +79,5 @@ StaticQuery.propTypes = {
 };
 
 function graphql() {
-  throw new Error(`It appears like Gatsby is misconfigured. Gatsby related \`graphql\` calls ` + `are supposed to only be evaluated at compile time, and then compiled away,. ` + `Unfortunately, something went wrong and the query was left in the compiled code.\n\n.` + `Unless your site has a complex or custom babel/Gatsby configuration this is likely a bug in Gatsby.`);
+  throw new Error(`It appears like Gatsby is misconfigured. Gatsby related \`graphql\` calls ` + `are supposed to only be evaluated at compile time, and then compiled away. ` + `Unfortunately, something went wrong and the query was left in the compiled code.\n\n` + `Unless your site has a complex or custom babel/Gatsby configuration this is likely a bug in Gatsby.`);
 }

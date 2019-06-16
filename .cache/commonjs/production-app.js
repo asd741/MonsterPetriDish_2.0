@@ -14,8 +14,6 @@ var _reactDom = _interopRequireDefault(require("react-dom"));
 
 var _router = require("@reach/router");
 
-var _utils = require("@reach/router/lib/utils");
-
 var _gatsbyReactRouterScroll = require("gatsby-react-router-scroll");
 
 var _domready = _interopRequireDefault(require("@mikaelkristiansson/domready"));
@@ -28,6 +26,8 @@ var _pageRenderer = _interopRequireDefault(require("./page-renderer"));
 
 var _asyncRequires = _interopRequireDefault(require("./async-requires"));
 
+var _matchPaths = _interopRequireDefault(require("./match-paths.json"));
+
 var _loader = _interopRequireWildcard(require("./loader"));
 
 var _ensureResources = _interopRequireDefault(require("./ensure-resources"));
@@ -35,14 +35,11 @@ var _ensureResources = _interopRequireDefault(require("./ensure-resources"));
 window.asyncRequires = _asyncRequires.default;
 window.___emitter = _emitter.default;
 window.___loader = _loader.default;
-
-_loader.default.addPagesArray([window.page]);
-
-_loader.default.addDataPaths({
-  [window.page.jsonName]: window.dataPath
-});
+window.___webpackCompilationHash = window.webpackCompilationHash;
 
 _loader.default.addProdRequires(_asyncRequires.default);
+
+_loader.default.addMatchPaths(_matchPaths.default);
 
 (0, _loader.setApiRunnerForLoader)(_apiRunnerBrowser.apiRunner);
 (0, _navigation.init)(); // Let the site/plugins run code very early.
@@ -76,24 +73,23 @@ _loader.default.addProdRequires(_asyncRequires.default);
   }
 
   const _window = window,
-        page = _window.page,
+        pagePath = _window.pagePath,
         browserLoc = _window.location;
 
   if ( // Make sure the window.page object is defined
-  page && // The canonical path doesn't match the actual path (i.e. the address bar)
-  __PATH_PREFIX__ + page.path !== browserLoc.pathname && ( // ...and if matchPage is specified, it also doesn't match the actual path
-  !page.matchPath || !(0, _utils.match)(__PATH_PREFIX__ + page.matchPath, browserLoc.pathname)) && // Ignore 404 pages, since we want to keep the same URL
-  page.path !== `/404.html` && !page.path.match(/^\/404\/?$/) && // Also ignore the offline shell (since when using the offline plugin, all
+  pagePath && // The canonical path doesn't match the actual path (i.e. the address bar)
+  __BASE_PATH__ + pagePath !== browserLoc.pathname && // Ignore 404 pages, since we want to keep the same URL
+  pagePath !== `/404.html` && !pagePath.match(/^\/404\/?$/) && // Also ignore the offline shell (since when using the offline plugin, all
   // pages have this canonical path)
-  !page.path.match(/^\/offline-plugin-app-shell-fallback\/?$/)) {
-    (0, _router.navigate)(__PATH_PREFIX__ + page.path + browserLoc.search + browserLoc.hash, {
+  !pagePath.match(/^\/offline-plugin-app-shell-fallback\/?$/)) {
+    (0, _router.navigate)(__BASE_PATH__ + pagePath + browserLoc.search + browserLoc.hash, {
       replace: true
     });
   }
 
-  _loader.default.getResourcesForPathname(browserLoc.pathname).then(() => {
+  _loader.default.loadPage(browserLoc.pathname).then(() => {
     const Root = () => (0, _react.createElement)(_router.Router, {
-      basepath: __PATH_PREFIX__
+      basepath: __BASE_PATH__
     }, (0, _react.createElement)(RouteHandler, {
       path: `/*`
     }));
@@ -113,7 +109,6 @@ _loader.default.addProdRequires(_asyncRequires.default);
     const renderer = (0, _apiRunnerBrowser.apiRunner)(`replaceHydrateFunction`, undefined, _reactDom.default.hydrate)[0];
     (0, _domready.default)(() => {
       renderer(_react.default.createElement(NewRoot, null), typeof window !== `undefined` ? document.getElementById(`___gatsby`) : void 0, () => {
-        (0, _loader.postInitialRenderWork)();
         (0, _apiRunnerBrowser.apiRunner)(`onInitialClientRender`);
       });
     });

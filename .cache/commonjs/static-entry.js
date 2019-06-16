@@ -34,16 +34,9 @@ const apiRunner = require(`./api-runner-ssr`);
 
 const syncRequires = require(`./sync-requires`);
 
-const _require5 = require(`./data.json`),
-      dataPaths = _require5.dataPaths,
-      pages = _require5.pages;
+const _require5 = require(`gatsby/package.json`),
+      gatsbyVersion = _require5.version;
 
-const _require6 = require(`gatsby/package.json`),
-      gatsbyVersion = _require6.version; // Speed up looking up pages.
-
-
-const pagesObjectMap = new Map();
-pages.forEach(p => pagesObjectMap.set(p.path, p));
 const stats = JSON.parse(fs.readFileSync(`${process.cwd()}/public/webpack.stats.json`, `utf-8`));
 const chunkMapping = JSON.parse(fs.readFileSync(`${process.cwd()}/public/chunk-map.json`, `utf-8`)); // const testRequireError = require("./test-require-error")
 // For some extremely mysterious reason, webpack adds the above module *after*
@@ -70,7 +63,33 @@ try {
 
 Html = Html && Html.__esModule ? Html.default : Html;
 
-const getPage = path => pagesObjectMap.get(path);
+const getPageDataPath = path => {
+  const fixedPagePath = path === `/` ? `index` : path;
+  return join(`page-data`, fixedPagePath, `page-data.json`);
+};
+
+const getPageDataUrl = pagePath => {
+  const pageDataPath = getPageDataPath(pagePath);
+  return `${__PATH_PREFIX__}/${pageDataPath}`;
+};
+
+const getPageDataFile = pagePath => {
+  const pageDataPath = getPageDataPath(pagePath);
+  return join(process.cwd(), `public`, pageDataPath);
+};
+
+const loadPageDataSync = pagePath => {
+  const pageDataPath = getPageDataPath(pagePath);
+  const pageDataFile = join(process.cwd(), `public`, pageDataPath);
+
+  try {
+    const pageDataJson = fs.readFileSync(pageDataFile);
+    return JSON.parse(pageDataJson);
+  } catch (error) {
+    // not an error if file is not found. There's just no page data
+    return null;
+  }
+};
 
 const createElement = React.createElement;
 
@@ -143,26 +162,18 @@ var _default = (pagePath, callback) => {
     postBodyComponents = sanitizeComponents(components);
   };
 
-  const page = getPage(pagePath);
-  let dataAndContext = {};
-
-  if (page.jsonName in dataPaths) {
-    const pathToJsonData = join(process.cwd(), `/public/static/d`, `${dataPaths[page.jsonName]}.json`);
-
-    try {
-      dataAndContext = JSON.parse(fs.readFileSync(pathToJsonData));
-    } catch (e) {
-      console.log(`error`, pathToJsonData, e);
-      process.exit();
-    }
-  }
+  const pageDataRaw = fs.readFileSync(getPageDataFile(pagePath));
+  const pageData = JSON.parse(pageDataRaw);
+  const pageDataUrl = getPageDataUrl(pagePath);
+  const componentChunkName = pageData.componentChunkName;
 
   class RouteHandler extends React.Component {
     render() {
-      const props = Object.assign({}, this.props, dataAndContext, {
-        pathContext: dataAndContext.pageContext
+      const props = Object.assign({}, this.props, pageData.result, {
+        // pathContext was deprecated in v2. Renamed to pageContext
+        pathContext: pageData.result ? pageData.result.pageContext : undefined
       });
-      const pageElement = createElement(syncRequires.components[page.componentChunkName], props);
+      const pageElement = createElement(syncRequires.components[componentChunkName], props);
       const wrappedPage = apiRunner(`wrapPageElement`, {
         element: pageElement,
         props
@@ -180,9 +191,9 @@ var _default = (pagePath, callback) => {
   }
 
   const routerElement = createElement(ServerLocation, {
-    url: `${__PATH_PREFIX__}${pagePath}`
+    url: `${__BASE_PATH__}${pagePath}`
   }, createElement(Router, {
-    baseuri: `${__PATH_PREFIX__}`
+    baseuri: `${__BASE_PATH__}`
   }, createElement(RouteHandler, {
     path: `/*`
   })));
@@ -221,7 +232,7 @@ var _default = (pagePath, callback) => {
   } // Create paths to scripts
 
 
-  let scriptsAndStyles = flatten([`app`, page.componentChunkName].map(s => {
+  let scriptsAndStyles = flatten([`app`, componentChunkName].map(s => {
     const fetchKey = `assetsByChunkName[${s}]`;
     let chunks = get(stats, fetchKey);
     let namedChunkGroups = get(stats, `namedChunkGroups`);
@@ -269,6 +280,7 @@ var _default = (pagePath, callback) => {
     setPostBodyComponents,
     setBodyProps,
     pathname: pagePath,
+    loadPageDataSync,
     bodyHtml,
     scripts,
     styles,
@@ -284,13 +296,12 @@ var _default = (pagePath, callback) => {
     }));
   });
 
-  if (page.jsonName in dataPaths) {
-    const dataPath = `${__PATH_PREFIX__}/static/d/${dataPaths[page.jsonName]}.json`;
+  if (pageData) {
     headComponents.push(React.createElement("link", {
       as: "fetch",
       rel: "preload",
-      key: dataPath,
-      href: dataPath,
+      key: pageDataUrl,
+      href: pageDataUrl,
       crossOrigin: "use-credentials"
     }));
   }
@@ -313,14 +324,15 @@ var _default = (pagePath, callback) => {
         }
       }));
     }
-  }); // Add page metadata for the current page
+  });
+  const webpackCompilationHash = pageData.webpackCompilationHash; // Add page metadata for the current page
 
-  const windowData = `/*<![CDATA[*/window.page=${JSON.stringify(page)};${page.jsonName in dataPaths ? `window.dataPath="${dataPaths[page.jsonName]}";` : ``}/*]]>*/`;
+  const windowPageData = `/*<![CDATA[*/window.pagePath="${pagePath}";window.webpackCompilationHash="${webpackCompilationHash}";/*]]>*/`;
   postBodyComponents.push(React.createElement("script", {
     key: `script-loader`,
     id: `gatsby-script-loader`,
     dangerouslySetInnerHTML: {
-      __html: windowData
+      __html: windowPageData
     }
   })); // Add chunk mapping metadata
 

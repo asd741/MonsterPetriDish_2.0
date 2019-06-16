@@ -5,7 +5,9 @@ const plugins = require(`./api-runner-browser-plugins`);
 const _require$publicLoader = require(`./loader`).publicLoader,
       getResourcesForPathname = _require$publicLoader.getResourcesForPathname,
       getResourcesForPathnameSync = _require$publicLoader.getResourcesForPathnameSync,
-      getResourceURLsForPathname = _require$publicLoader.getResourceURLsForPathname;
+      getResourceURLsForPathname = _require$publicLoader.getResourceURLsForPathname,
+      loadPage = _require$publicLoader.loadPage,
+      loadPageSync = _require$publicLoader.loadPageSync;
 
 exports.apiRunner = (api, args = {}, defaultReturn, argTransform) => {
   // Hooks for gatsby-cypress's API handler
@@ -22,11 +24,15 @@ exports.apiRunner = (api, args = {}, defaultReturn, argTransform) => {
   let results = plugins.map(plugin => {
     if (!plugin.plugin[api]) {
       return undefined;
-    }
+    } // Deprecated April 2019. Use `loadPageSync` instead
 
-    args.getResourcesForPathnameSync = getResourcesForPathnameSync;
+
+    args.getResourcesForPathnameSync = getResourcesForPathnameSync; // Deprecated April 2019. Use `loadPage` instead
+
     args.getResourcesForPathname = getResourcesForPathname;
     args.getResourceURLsForPathname = getResourceURLsForPathname;
+    args.loadPage = loadPage;
+    args.loadPageSync = loadPageSync;
     const result = plugin.plugin[api](args, plugin.options);
 
     if (result && argTransform) {
