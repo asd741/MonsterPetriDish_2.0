@@ -4,6 +4,14 @@ import Page1 from './page1';
 import Page2 from './page2';
 import Page3 from './page3';
 import Page4 from './page4';
+import Page5 from './page5';
+import Page6 from './page6';
+import Page7 from './page7';
+import Page8 from './page8';
+import Page9 from './page9';
+import Page10 from './page10';
+import Page11 from './page11';
+import Page12 from './page12';
 import LastPage from './lastpage';
 import "./book.sass";
 // import { Toast } from "antd-mobile";
@@ -13,7 +21,7 @@ const Book = () => {
     aPage,
     aPageDegs = [],
     gap,
-    space = 25,
+    space = 40,
     readingPageIndex;
   useEffect(() => {//角度與層級初始化
     oWrap = document.getElementsByClassName('book-page-wrapper')[0];
@@ -226,6 +234,14 @@ const Book = () => {
         <Page2 />
         <Page3 />
         <Page4 />
+        <Page5 />
+        <Page6 />
+        <Page7 />
+        <Page8 />
+        <Page9 />
+        <Page10 />
+        <Page11 />
+        <Page12 />
         <LastPage />
       </div>
     </div>
