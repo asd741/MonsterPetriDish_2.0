@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { FaYoutube } from "react-icons/fa";
+import { FaVolumeUp } from "react-icons/fa";
 export default class Pc extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
   }
   componentDidMount() {
@@ -22,7 +24,7 @@ export default class Pc extends Component {
         });
       }
     };
-    window.S=S;
+    window.S = S;
     S.Drawing = (function() {
       let canvas,
         context,
@@ -50,7 +52,7 @@ export default class Pc extends Component {
         loop: function(fn) {
           renderFn = !renderFn ? fn : renderFn;
           this.clearFrame();
-          if(!window.S){
+          if (!window.S) {
             return;
           }
           renderFn();
@@ -755,9 +757,9 @@ export default class Pc extends Component {
     })();
     S.init();
   }
-  
+
   componentWillUnmount() {
-    window.S=null;
+    window.S = null;
   }
   render() {
     return (
@@ -767,7 +769,35 @@ export default class Pc extends Component {
           <script src="/follow.js" type="text/javascript"></script>
         </div> --> */}
         <canvas className="canvas" />
-        <img id='logo' src={require('../../images/logo.png')}></img>
+        <div id="logo">
+          <img src={require("../../images/logo.png")} />
+        </div>
+        <div
+          id="video-btn"
+          onClick={() => {
+            this.props.handlePopup(true);
+          }}
+        >
+          <FaYoutube />
+        </div>
+        <div id="music-btn">
+          <FaVolumeUp />
+        </div>
+        {this.props.showPopup === true ? (
+          <div className="popup">
+            <div className="mask">
+              <div className="authbox">
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube.com/embed/-cF4cxzY-VE"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                />
+              </div>
+            </div>
+          </div>
+        ) : null}
         <div className="help">?</div>
 
         <div className="ui">
@@ -893,4 +923,3 @@ export default class Pc extends Component {
     );
   }
 }
-

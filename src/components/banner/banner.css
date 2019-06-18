@@ -29,6 +29,36 @@
     transform: translate(-50%,-50%) scale(1);
   }
 } */
+.hide{
+  display: none !important;
+}
+.popup{
+  min-width: 100vw;
+  min-height: 100vh;
+  position: fixed;
+  top:0;
+  left:0;
+}
+.popup .mask{
+  min-width: 100vw;
+  min-height: 100vh;
+  background: rgba(0,0,0,.5);
+  transition: background .3s;
+  display:flex;
+}
+.popup .authbox{
+  transition: width .3s,height .3s;
+  width:70%;
+  margin: auto;
+}
+.popup .authbox iframe{
+  max-width: 100%;
+  margin: auto;
+  display: block;
+}
+#logo img{
+  max-width:100%;
+}
 #logo{
   margin: auto;
   position: absolute;
@@ -38,6 +68,30 @@
   transform: translate(-50%,0%);
   transition: transform .3s;
   /* animation: showLogo .5s 1 linear; */
+}
+#video-btn,#music-btn{
+  font-size: 50px;
+  position: absolute;
+  top: 20px;
+  width: 60px;
+  height: 60px;
+}
+#video-btn:hover,#music-btn:hover{
+  cursor: pointer;
+}
+#video-btn:hover{
+  color:#f00;
+}
+#music-btn:hover{
+  opacity: 1;
+}
+#video-btn{
+  color:rgba(0,0,0,.5);
+  left: 20px;
+}
+#music-btn{
+  right: 20px;
+  opacity: .5;
 }
 @media screen and (max-width:1140px) and (min-width:600px){
   #logo{
@@ -170,8 +224,8 @@
 
 .help {
   position: absolute;
-  top: 40px;
-  right: 40px;
+  top: 80px;
+  right: 80px;
   width: 25px;
   height: 25px;
   text-align: center;
