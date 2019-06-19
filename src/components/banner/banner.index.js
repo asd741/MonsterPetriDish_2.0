@@ -4,13 +4,16 @@ import Pc from "./banner.pc";
 import "./banner.css";
 import QueueAnim from "rc-queue-anim";
 import { throws } from "assert";
+import bgm from '../../images/music.mp3';
 export default class Banner extends Component {
   constructor(props) {
     super(props);
     if (typeof window !== "undefined") {
       let pageType = window.innerWidth > 1140 ? "pc" : "mobi";
+      let haveBgmObj=window.bgmObj?true:false;
       this.state = {
-        page: pageType
+        page: pageType,
+        createMusic:haveBgmObj
       };
       window.onresize = () => {
         if (window.innerWidth > 1140 && this.state.page !== "pc") {
@@ -22,14 +25,38 @@ export default class Banner extends Component {
       };
     }
     this.handlePopup = this.handlePopup.bind(this);
+    this.handleMusic = this.handleMusic.bind(this);
   }
   componentDidMount() {
+    if(this.state.createMusic===false){
+      console.log('create objjjjjjjjjjj')
+      window.bgmObj=new Audio(bgm);
+    }
     this.setState({
-      showPopup: false
+      showPopup: false,
+      music:false,
     });
   }
   handlePopup(bool) {
     this.setState({ showPopup: bool });
+  }
+  handleMusic(bool){
+    console.log(bool);
+    if(window.bgmObj){
+      if(bool===true){
+        window.bgmObj.play();
+        this.setState({ music:true });
+        return;
+      }
+      if(bool===false){
+        window.bgmObj.pause();
+        this.setState({ music:false });
+        return;
+      }
+    }else{
+      console.log('音樂物件不存在');
+    }
+    
   }
   render() {
     return (
@@ -48,6 +75,8 @@ export default class Banner extends Component {
               <Pc
                 showPopup={this.state.showPopup}
                 handlePopup={this.handlePopup}
+                handleMusic={this.handleMusic}
+                music={this.state.music}
               />
             </div>
           ) : (
@@ -55,6 +84,8 @@ export default class Banner extends Component {
               <Mobi
                 showPopup={this.state.showPopup}
                 handlePopup={this.handlePopup}
+                handleMusic={this.handleMusic}
+                music={this.state.music}
               />
             </div>
           )}

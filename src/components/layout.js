@@ -11,6 +11,7 @@ import "./layout.sass";
 import { Helmet } from "react-helmet";
 // let store = createStore(reducers);
 const Layout = ({ children }) => (
+  
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -23,11 +24,12 @@ const Layout = ({ children }) => (
     `}
     render={data => {
       return (
-        // <Provider>
           <div className='bg'>
+              
             <Helmet>
               <meta charSet="utf-8" />
               <title>魔物培養皿官網</title>
+              
             </Helmet>
             <QueueAnim type="scale">
               <div
@@ -36,8 +38,12 @@ const Layout = ({ children }) => (
               >
                 {children}
               </div>
+              
+
             </QueueAnim>
+            
             <nav className="navbar">
+              
               <Link to="/" className="index-link">
                 大廳
               </Link>
@@ -55,7 +61,6 @@ const Layout = ({ children }) => (
               </Link>
             </nav>
           </div>
-        // </Provider>
       );
     }}
   />

@@ -9,7 +9,7 @@ const Index=()=>{
         <section className='main'>
           <section className='dl-part'>
             <img className='dl-qrcode' src={require('../../images/dl.png')}></img>
-            <a href='https://drive.google.com/uc?authuser=1&id=19dbCgeQXmScK9DPbfKDRmHWtAJP0_ORy&export=download' className='dl-btn' target='_blank'>下載</a>
+            <a href='http://bit.ly/2EwQpvG' className='dl-btn' target='_blank'>下載</a>
           </section>
           <section className='text-part'>
             <ul className='list-wrapper'>

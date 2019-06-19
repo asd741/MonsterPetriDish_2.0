@@ -780,7 +780,12 @@ export default class Pc extends Component {
         >
           <FaYoutube />
         </div>
-        <div id="music-btn">
+        <div
+          id="music-btn"
+          onClick={() => {
+            this.props.handleMusic(!this.props.music);
+          }}
+        >
           <FaVolumeUp />
         </div>
         {this.props.showPopup === true ? (
