@@ -785,8 +785,9 @@ export default class Pc extends Component {
           onClick={() => {
             this.props.handleMusic(!this.props.music);
           }}
+          style={{ opacity: this.props.music ? 1 : 0.5 }} 
         >
-          <FaVolumeUp style={{ opacity: this.props.music ? 1 : 0.5 }} />
+          <FaVolumeUp/>
         </div>
         {this.props.showPopup === true ? (
           <div className="popup">

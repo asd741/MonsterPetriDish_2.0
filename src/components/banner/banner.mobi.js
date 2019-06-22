@@ -18,6 +18,7 @@ export default class Mobi extends Component {
           onClick={() => {
             this.props.handlePopup(true);
           }}
+          
         >
           <FaYoutube />
         </div>
@@ -26,8 +27,9 @@ export default class Mobi extends Component {
           onClick={() => {
             this.props.handleMusic(!this.props.music);
           }}
+          style={{ opacity: this.props.music ? 1 : 0.5 }} 
         >
-          <FaVolumeUp style={{opacity:this.props.music?1:.5}}/>
+          <FaVolumeUp/>
         </div>
         {this.props.showPopup === true ? (
           <div className="popup">
