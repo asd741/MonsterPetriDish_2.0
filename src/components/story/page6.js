@@ -1,13 +1,13 @@
 import React from "react";
 import p12 from "../../images/p12.png";
-import { Flex } from "antd-mobile";
+// import { Flex } from "antd-mobile";
 
 const Page6 = props => {
   return (
     <div className="page6 page">
       <div className="front">
         <h3 className="title">進化選擇</h3>
-        <img className="startImg" src={require("../../images/p11.png")} />
+        <img className="startImg" src={require("../../images/p11.png")} alt=''/>
       </div>
       <div className="back" style={{display:'flex',flexDirection:'column'}}>
         {/* img size */}

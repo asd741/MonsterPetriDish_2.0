@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
+// import { connect } from "react-redux";
 import { FaYoutube } from "react-icons/fa";
 import { FaVolumeUp } from "react-icons/fa";
 export default class Pc extends Component {
@@ -770,7 +770,7 @@ export default class Pc extends Component {
         </div> --> */}
         <canvas className="canvas" />
         <div id="logo">
-          <img src={require("../../images/logo.png")} />
+          <img src={require("../../images/logo.png")} alt=''/>
         </div>
         <div
           id="video-btn"
@@ -786,7 +786,7 @@ export default class Pc extends Component {
             this.props.handleMusic(!this.props.music);
           }}
         >
-          <FaVolumeUp />
+          <FaVolumeUp style={{ opacity: this.props.music ? 1 : 0.5 }} />
         </div>
         {this.props.showPopup === true ? (
           <div className="popup">

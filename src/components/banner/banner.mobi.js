@@ -11,7 +11,7 @@ export default class Mobi extends Component {
       <>
         <h1 id="mobi-page-h1">魔物培養皿官方網站</h1>
         <div id="logo">
-          <img src={require("../../images/logo.png")} />
+          <img src={require("../../images/logo.png")} alt=''/>
         </div>
         <div
           id="video-btn"
@@ -27,7 +27,7 @@ export default class Mobi extends Component {
             this.props.handleMusic(!this.props.music);
           }}
         >
-          <FaVolumeUp />
+          <FaVolumeUp style={{opacity:this.props.music?1:.5}}/>
         </div>
         {this.props.showPopup === true ? (
           <div className="popup">

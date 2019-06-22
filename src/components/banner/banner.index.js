@@ -3,7 +3,7 @@ import Mobi from "./banner.mobi";
 import Pc from "./banner.pc";
 import "./banner.css";
 import QueueAnim from "rc-queue-anim";
-import { throws } from "assert";
+// import { throws } from "assert";
 import bgm from '../../images/music.mp3';
 export default class Banner extends Component {
   constructor(props) {
@@ -29,7 +29,6 @@ export default class Banner extends Component {
   }
   componentDidMount() {
     if(this.state.createMusic===false){
-      console.log('create objjjjjjjjjjj')
       window.bgmObj=new Audio(bgm);
     }
     this.setState({
@@ -41,7 +40,6 @@ export default class Banner extends Component {
     this.setState({ showPopup: bool });
   }
   handleMusic(bool){
-    console.log(bool);
     if(window.bgmObj){
       if(bool===true){
         window.bgmObj.play();

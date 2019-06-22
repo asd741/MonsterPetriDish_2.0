@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Monster from '../components/story/monster';
 import Layout from "../components/layout";
 

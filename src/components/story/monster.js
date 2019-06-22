@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Link } from "gatsby";
+// import { Link } from "gatsby";
 import * as THREE from 'three';
-import Orbitcontrols from 'three-orbitcontrols';
-import {connect} from 'react-redux'
+// import Orbitcontrols from 'three-orbitcontrols';
+// import {connect} from 'react-redux'
 
 export default class Monster extends Component {
   componentDidMount() {
@@ -252,7 +252,7 @@ export default class Monster extends Component {
   }
   render() {
     return (
-      <div style={{ "position": "relative" }}>
+      <div style={{ "position": "relative",'overflow':'hidden'}}>
         <div id="stats" />
         <div id='monster'/>
       </div>

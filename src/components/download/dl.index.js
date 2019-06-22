@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './dl.index.sass';
 // import Monster from '../story/monster';
 const Index=()=>{
@@ -15,8 +15,8 @@ const Index=()=>{
             <ul className='list-wrapper'>
               <li className='list'>軟體名字：魔物培養皿</li>
               <li className='list'>檔案類型：.apk</li>
-              <li className='list'>系統需求：Android 4.1版本以上</li>
-              <li className='list'>記憶體：512mb</li>
+              <li className='list'>系統需求：Android 4.4版本以上</li>
+              <li className='list'>記憶體需求：512mb</li>
             </ul>
           </section>
         </section>

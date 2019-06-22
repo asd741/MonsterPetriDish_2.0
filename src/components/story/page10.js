@@ -22,7 +22,7 @@ const Page10 = props => {
       </div>
       <div className="back">
         <h3 className="title">探索</h3>
-        <img className="startImg" src={require("../../images/p16.png")} />
+        <img className="startImg" src={require("../../images/p16.png")} alt=''/>
       </div>
     </div>
   );
