@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import { Link } from "gatsby";
 import * as THREE from 'three';
-// import Orbitcontrols from 'three-orbitcontrols';
+import Orbitcontrols from 'three-orbitcontrols';
 // import {connect} from 'react-redux'
 
 export default class Monster extends Component {
