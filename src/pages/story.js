@@ -1,7 +1,6 @@
 import React from "react"
 import Layout from "../components/layout"
-// import Book from '../components/story/book'
-import Book2 from '../components/story/book2'
+import Book2 from '../components/story/book/book2'
 const Story = () => (
     <Layout>
         <Book2/>

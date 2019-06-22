@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Cover from "./cover";
 import Page1 from "./page1";
 import Page2 from "./page2";
