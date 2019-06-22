@@ -57,14 +57,14 @@ const Book2 = () => {
     if (isMobi === true) {
       oWrap.ontouchmove = e => {
         let goalDeg;
-        if (sX - e.clientX >= 0) {//往左翻頁
+        if (sX - e.touches[0].clientX >= 0) {//往左翻頁
             if(aPageDegs[index-1]===undefined){
                 goalDeg=-180;
             }else{
                 goalDeg=aPageDegs[index-1]+gap;
             }
         }
-        if (sX - e.clientX <= 0) {//往右翻頁
+        if (sX - e.touches[0].clientX <= 0) {//往右翻頁
             if(aPageDegs[index+1]===undefined){
                 goalDeg=0;
             }else{
