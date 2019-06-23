@@ -1,0 +1,39 @@
+#bookNav
+    position: absolute
+    top: 20px
+    left: 20px
+    width: 200px
+    .bookmark
+        position: relative
+        display: flex
+        justify-content: center
+        align-items: center
+        margin: 0 0 6px 0
+        width: 100%
+        height: 28px
+        &::after
+            content: ''
+            position: absolute
+            right: -14px
+            border-width: 14px
+            border-style: solid
+    .bookmark:nth-of-type(1)
+        background: #faa
+        &::after
+            border-color: #faa transparent #faa #faa
+    .bookmark:nth-of-type(2)
+        background: #ffa
+        &::after
+            border-color: #ffa transparent #ffa #ffa
+    .bookmark:nth-of-type(3)
+        background: #aaf
+        &::after
+            border-color: #aaf transparent #aaf #aaf
+    .bookmark:nth-of-type(4)
+        background: #ffa
+        &::after
+            border-color: #ffa transparent #ffa #ffa
+    .bookmark:nth-of-type(5)
+        background: #faa
+        &::after
+            border-color: #faa transparent #faa #faa

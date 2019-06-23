@@ -57,7 +57,7 @@ const Layout = ({ children }) => (
                 下載
               </Link>
               <Link to="/other" className="other-link">
-                其他
+                粒子
               </Link>
             </nav>
           </div>

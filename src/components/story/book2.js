@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Cover from "./cover";
 import Page1 from "./page1";
 import Page2 from "./page2";
@@ -57,22 +57,24 @@ const Book2 = () => {
     if (isMobi === true) {
       oWrap.ontouchmove = e => {
         let goalDeg;
-        if (sX - e.touches[0].clientX >= 0) {//往左翻頁
-            if(aPageDegs[index-1]===undefined){
-                goalDeg=-180;
-            }else{
-                goalDeg=aPageDegs[index-1]+gap;
-            }
+        if (sX - e.touches[0].clientX >= 0) {
+          //往左翻頁
+          if (aPageDegs[index - 1] === undefined) {
+            goalDeg = -180;
+          } else {
+            goalDeg = aPageDegs[index - 1] + gap;
+          }
         }
-        if (sX - e.touches[0].clientX <= 0) {//往右翻頁
-            if(aPageDegs[index+1]===undefined){
-                goalDeg=0;
-            }else{
-                goalDeg=aPageDegs[index+1]-gap;
-            }
+        if (sX - e.touches[0].clientX <= 0) {
+          //往右翻頁
+          if (aPageDegs[index + 1] === undefined) {
+            goalDeg = 0;
+          } else {
+            goalDeg = aPageDegs[index + 1] - gap;
+          }
         }
         that.style.transform = `rotateY(${goalDeg}deg)`;
-        aPageDegs[index]=goalDeg;
+        aPageDegs[index] = goalDeg;
       };
       oWrap.ontouchend = () => {
         oWrap.ontouchmove = null;
@@ -81,22 +83,24 @@ const Book2 = () => {
     if (isMobi === false) {
       oWrap.onmousemove = e => {
         let goalDeg;
-        if (sX - e.clientX >= 0) {//往左翻頁
-            if(aPageDegs[index-1]===undefined){
-                goalDeg=-180;
-            }else{
-                goalDeg=aPageDegs[index-1]+gap;
-            }
+        if (sX - e.clientX >= 0) {
+          //往左翻頁
+          if (aPageDegs[index - 1] === undefined) {
+            goalDeg = -180;
+          } else {
+            goalDeg = aPageDegs[index - 1] + gap;
+          }
         }
-        if (sX - e.clientX <= 0) {//往右翻頁
-            if(aPageDegs[index+1]===undefined){
-                goalDeg=0;
-            }else{
-                goalDeg=aPageDegs[index+1]-gap;
-            }
+        if (sX - e.clientX <= 0) {
+          //往右翻頁
+          if (aPageDegs[index + 1] === undefined) {
+            goalDeg = 0;
+          } else {
+            goalDeg = aPageDegs[index + 1] - gap;
+          }
         }
         that.style.transform = `rotateY(${goalDeg}deg)`;
-        aPageDegs[index]=goalDeg;
+        aPageDegs[index] = goalDeg;
       };
       oWrap.onmouseup = () => {
         oWrap.onmousemove = null;
