@@ -8,7 +8,6 @@ import bgm from '../../images/music.mp3';
 export default class Banner extends Component {
   constructor(props) {
     super(props);
-    console.log(props);
     if (typeof window !== "undefined") {
       let pageType = window.innerWidth > 1140 ? "pc" : "mobi";
       let haveBgmObj=window.bgmObj?true:false;
