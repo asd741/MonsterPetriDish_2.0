@@ -11,14 +11,13 @@ export default class Mobi extends Component {
       <>
         <h1 id="mobi-page-h1">魔物培養皿官方網站</h1>
         <div id="logo">
-          <img src={require("../../images/logo.png")} alt=''/>
+          <img src={require("../../images/logo.png")} alt="" />
         </div>
         <div
           id="video-btn"
           onClick={() => {
             this.props.handlePopup(true);
           }}
-          
         >
           <FaYoutube />
         </div>
@@ -27,9 +26,9 @@ export default class Mobi extends Component {
           onClick={() => {
             this.props.handleMusic(!this.props.music);
           }}
-          style={{ opacity: this.props.music ? 1 : 0.5 }} 
+          style={{ opacity: this.props.music ? 1 : 0.5 }}
         >
-          <FaVolumeUp/>
+          <FaVolumeUp />
         </div>
         {this.props.showPopup === true ? (
           <div className="popup">
@@ -38,7 +37,7 @@ export default class Mobi extends Component {
                 <iframe
                   width="560"
                   height="315"
-                  src="https://www.youtube.com/embed/-cF4cxzY-VE"
+                  src="https://www.youtube.com/embed/_zvb2wVzvJ4"
                   frameBorder="0"
                   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                 />

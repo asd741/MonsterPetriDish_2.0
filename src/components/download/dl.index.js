@@ -33,7 +33,7 @@ const Index = () => {
             <li className="list">軟體名字：魔物培養皿</li>
             <li className="list">檔案類型：.apk</li>
             <li className="list">系統需求：Android 4.4版本以上</li>
-            {/* <li className="list">記憶體需求：512mb</li> */}
+            <li className="list">檔案大小：89.9mb</li>
           </ul>
         </section>
       </section>
